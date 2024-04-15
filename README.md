@@ -1,7 +1,7 @@
 # Term 3 Project | Group 4
 ### (2024) Object-Oriented Software Development 
 
-This repository contains all the project files for Term 3 Group 4's Workshops.
+This repository contains all the project files for Term 3 Group 4's Workshops 6/7/8.
 
 __**The workshops include:**__
 - Project Workshop 6 – CMPP264(Java)
