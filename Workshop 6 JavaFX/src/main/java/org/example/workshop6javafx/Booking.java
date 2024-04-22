@@ -3,9 +3,12 @@ package org.example.workshop6javafx;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 public class Booking {
     private SimpleIntegerProperty bookingId;
-    private SimpleIntegerProperty bookingDate;
+    private SimpleStringProperty bookingDate;
     private SimpleStringProperty bookingNo;
     private SimpleIntegerProperty bookingTravelerCount;
     private SimpleIntegerProperty bookingCustomerId;
@@ -13,10 +16,10 @@ public class Booking {
     // private SimpleIntegerProperty PackageId;
     // ^commenting this out rn cause idk if it's gonna get used
 
-    public Booking(int bookingId, int bookingDate, String bookingNo,
+    public Booking(int bookingId, String bookingDate, String bookingNo,
                    int travelerCount, int customerId, String tripTypeId ) {
         this.bookingId = new SimpleIntegerProperty(bookingId);
-        this.bookingDate = new SimpleIntegerProperty(bookingDate);
+        this.bookingDate = new SimpleStringProperty(bookingDate);
         this.bookingNo = new SimpleStringProperty(bookingNo);
         this.bookingTravelerCount = new SimpleIntegerProperty(travelerCount);
         this.bookingCustomerId = new SimpleIntegerProperty(customerId);
@@ -35,15 +38,15 @@ public class Booking {
         this.bookingId.set(bookingId);
     }
 
-    public int getBookingDate() {
+    public String getBookingDate() {
         return bookingDate.get();
     }
 
-    public SimpleIntegerProperty bookingDateProperty() {
+    public SimpleStringProperty bookingDateProperty() {
         return bookingDate;
     }
 
-    public void setBookingDate(int bookingDate) {
+    public void setBookingDate(String bookingDate) {
         this.bookingDate.set(bookingDate);
     }
 

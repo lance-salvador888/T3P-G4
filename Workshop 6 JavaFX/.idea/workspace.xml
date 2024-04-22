@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)" />
+    <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,9 +55,9 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.39984226",
+    "project.structure.side.proportion": "0.3911672",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -60,6 +65,26 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="org.example.workshop6javafx" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="MainApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.workshop6javafx.MainApplication" />
+      <module name="Workshop6JavaFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.workshop6javafx.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApplication" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -80,6 +105,7 @@
       <workItem from="1713765953737" duration="1752000" />
       <workItem from="1713767719295" duration="689000" />
       <workItem from="1713768436734" duration="2787000" />
+      <workItem from="1713820070876" duration="4604000" />
     </task>
     <task id="LOCAL-00001" summary="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)">
       <option name="closed" value="true" />
