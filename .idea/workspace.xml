@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f13edd61-da62-40cf-907a-49d29baa208b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Workshop 6 JavaFX/src/main/java/org/example/workshop6javafx/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop 6 JavaFX/src/main/java/org/example/workshop6javafx/MainController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,9 +19,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2fIZkxWSi0JYbcLxo3G4IkfRvRR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -25,14 +29,21 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/orangentle/Documents/GitHub/T3P-G4",
+    "last_opened_file_path": "C:/Users/orangentle/Documents/GitHub/T3P-G4/Workshop 6 JavaFX",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.5471264",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -53,6 +64,7 @@
       <option name="presentableId" value="Default" />
       <updated>1713490698989</updated>
       <workItem from="1713490700304" duration="701000" />
+      <workItem from="1713764240411" duration="1756000" />
     </task>
     <servers />
   </component>
