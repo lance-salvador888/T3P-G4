@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### stoopid file ###
+Workshop 6 JavaFX/.idea/workspace.xml
