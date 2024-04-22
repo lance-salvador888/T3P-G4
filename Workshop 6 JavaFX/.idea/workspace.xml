@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)" />
+    <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/BookingDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,8 +46,10 @@
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/orangentle/.m2/repository/org/openjfx/javafx-controls/20.0.1",
@@ -64,8 +71,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
       </set>
     </attachedChunks>
   </component>
@@ -80,6 +86,7 @@
       <workItem from="1713765953737" duration="1752000" />
       <workItem from="1713767719295" duration="689000" />
       <workItem from="1713768436734" duration="2787000" />
+      <workItem from="1713823769816" duration="1686000" />
     </task>
     <task id="LOCAL-00001" summary="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)">
       <option name="closed" value="true" />
