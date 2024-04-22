@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="set min width/height of window, changed window title">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/main-view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,11 +79,24 @@
       <updated>1713765952708</updated>
       <workItem from="1713765953737" duration="1752000" />
       <workItem from="1713767719295" duration="689000" />
-      <workItem from="1713768436734" duration="2666000" />
+      <workItem from="1713768436734" duration="2787000" />
     </task>
+    <task id="LOCAL-00001" summary="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)">
+      <option name="closed" value="true" />
+      <created>1713778470419</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713778470419</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)" />
   </component>
 </project>
