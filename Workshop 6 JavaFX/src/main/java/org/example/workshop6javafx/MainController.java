@@ -18,10 +18,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MainController {
 
@@ -49,16 +47,13 @@ public class MainController {
     @FXML // fx:id="lcYTravelerCount"
     private NumberAxis lcYTravelerCount; // Value injected by FXMLLoader
 
-    @FXML // fx:id="ttvBookings"
-    private TreeTableView<Booking> ttvBookings; // Value injected by FXMLLoader
-
-    @FXML // fx:id="ttvColBooking"
-    private TreeTableColumn<Booking, String> ttvColBooking; // Value injected by FXMLLoader
+    @FXML // fx:id="tvBookings"
+    private TreeView<String> tvBookings; // Value injected by FXMLLoader
 
     @FXML // fx:id="welcomeText"
     private Label welcomeText; // Value injected by FXMLLoader
 
-    private ObservableList<Booking> bookings = FXCollections.observableArrayList();
+    private ObservableList<TreeItem<Booking>> bookings = FXCollections.observableArrayList();
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
@@ -68,10 +63,11 @@ public class MainController {
         assert lcTravelerGraph != null : "fx:id=\"lcTravelerGraph\" was not injected: check your FXML file 'main-view.fxml'.";
         assert lcXDate != null : "fx:id=\"lcXDate\" was not injected: check your FXML file 'main-view.fxml'.";
         assert lcYTravelerCount != null : "fx:id=\"lcYTravelerCount\" was not injected: check your FXML file 'main-view.fxml'.";
-        assert ttvBookings != null : "fx:id=\"ttvBookings\" was not injected: check your FXML file 'main-view.fxml'.";
-        assert ttvColBooking != null : "fx:id=\"ttvColBooking\" was not injected: check your FXML file 'main-view.fxml'.";
+        assert tvBookings != null : "fx:id=\"tvBookings\" was not injected: check your FXML file 'main-view.fxml'.";
         assert welcomeText != null : "fx:id=\"welcomeText\" was not injected: check your FXML file 'main-view.fxml'.";
 
+        TreeItem<String> root = new TreeItem<String>("Bookings");
+        tvBookings.setRoot(root);
 
     }
 
@@ -94,10 +90,10 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from bookings");
             while(rs.next()){
-                bookings.add(new Booking(
+                bookings.add(new TreeItem<>(new Booking(
                         rs.getInt(1), rs.getDate(2).toString(),
                         rs.getString(3), rs.getInt(4),
-                        rs.getInt(5), rs.getString(6)));
+                        rs.getInt(5), rs.getString(6))));
             }
             conn.close();
         }  catch (IOException | SQLException e) {
