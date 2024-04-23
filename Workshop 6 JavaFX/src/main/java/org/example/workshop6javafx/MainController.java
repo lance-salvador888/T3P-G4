@@ -18,10 +18,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TreeTableColumn;
-import javafx.scene.control.TreeTableView;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.*;
 
 public class MainController {
 
@@ -30,6 +28,8 @@ public class MainController {
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
+    @FXML
+    private ComboBox<?> cbBookings;
 
     @FXML // fx:id="btnAdd"
     private Button btnAdd; // Value injected by FXMLLoader
@@ -103,7 +103,39 @@ public class MainController {
         }  catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
+    public void populateLineChart() {
+        String selectedDestination = (String) cbBookings.getValue();
+
+        lcTravelerGraph.getData().clear();
+        XYChart.Series series = new XYChart.Series();
+        String url = "";
+        String user = "";
+        String password = "";
+
+        try {
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = (String) prop.get("url");
+            user = (String) prop.get("user");
+            password = (String) prop.get("password");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookings where destination = '" + selectedDestination + "'");
+            while(rs.next()){
+                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            }
+            lcTravelerGraph.getData().add(series);
+            conn.close();
+        }  catch (IOException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 
 
 }
