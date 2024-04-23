@@ -100,11 +100,11 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking " + bookingId +
-                ": bookingDate=" + bookingDate +
-                ", bookingNo=" + bookingNo +
-                ", bookingTravelerCount=" + bookingTravelerCount +
-                ", bookingCustomerId=" + bookingCustomerId +
-                ", bookingTripTypeId=" + bookingTripTypeId;
+        return "Booking " + bookingId.getValue()+
+                ": bookingDate=" + bookingDate.get() +
+                ", bookingNo=" + bookingNo.get() +
+                ", bookingTravelerCount=" + bookingTravelerCount.get() +
+                ", bookingCustomerId=" + bookingCustomerId.getValue() +
+                ", bookingTripTypeId=" + bookingTripTypeId.get();
     }
 }

@@ -4,30 +4,42 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-import java.text.SimpleDateFormat;
+/// Booking Details
+/// By: Nicholas Wagner & Lance Salvador
 
 public class BookingDetails {
     SimpleIntegerProperty bookingDetailId;
-    SimpleDoubleProperty itineraryNo;
+    SimpleIntegerProperty itineraryNo;
     SimpleStringProperty tripStart;
     SimpleStringProperty tripEnd;
     SimpleStringProperty description;
     SimpleStringProperty destination;
     SimpleDoubleProperty basePrice;
     SimpleDoubleProperty agencyCommission;
+    SimpleIntegerProperty bookingId;
+    SimpleStringProperty regionId;
+    SimpleStringProperty classId;
+    SimpleStringProperty feeId;
 
-    public BookingDetails(int bookingDetailId, double itineraryNo,
+
+    public BookingDetails(int bookingDetailId, int itineraryNo,
                           String tripStart, String tripEnd,
                           String description, String destination,
-                          double basePrice, double agencyCommission) {
+                          double basePrice, double agencyCommission,
+                          int bookingId, String regionId,
+                          String classId, String feeId) {
         this.bookingDetailId = new SimpleIntegerProperty(bookingDetailId);
-        this.itineraryNo = new SimpleDoubleProperty(itineraryNo);
+        this.itineraryNo = new SimpleIntegerProperty(itineraryNo);
         this.tripStart = new SimpleStringProperty(tripStart);
         this.tripEnd = new SimpleStringProperty(tripEnd);
         this.description = new SimpleStringProperty(description);
         this.destination = new SimpleStringProperty(destination);
         this.basePrice = new SimpleDoubleProperty(basePrice);
         this.agencyCommission = new SimpleDoubleProperty(agencyCommission);
+        this.bookingId = new SimpleIntegerProperty(bookingId);
+        this.regionId = new SimpleStringProperty(regionId);
+        this.classId = new SimpleStringProperty(classId);
+        this.feeId = new SimpleStringProperty(feeId);
     }
 
     public int getBookingDetailId() {
@@ -46,11 +58,11 @@ public class BookingDetails {
         return itineraryNo.get();
     }
 
-    public SimpleDoubleProperty itineraryNoProperty() {
+    public SimpleIntegerProperty itineraryNoProperty() {
         return itineraryNo;
     }
 
-    public void setItineraryNo(double itineraryNo) {
+    public void setItineraryNo(int itineraryNo) {
         this.itineraryNo.set(itineraryNo);
     }
 
@@ -124,5 +136,69 @@ public class BookingDetails {
 
     public void setAgencyCommission(double agencyCommission) {
         this.agencyCommission.set(agencyCommission);
+    }
+
+    public int getBookingId() {
+        return bookingId.get();
+    }
+
+    public SimpleIntegerProperty bookingIdProperty() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId.set(bookingId);
+    }
+
+    public String getRegionId() {
+        return regionId.get();
+    }
+
+    public SimpleStringProperty regionIdProperty() {
+        return regionId;
+    }
+
+    public void setRegionId(String regionId) {
+        this.regionId.set(regionId);
+    }
+
+    public String getClassId() {
+        return classId.get();
+    }
+
+    public SimpleStringProperty classIdProperty() {
+        return classId;
+    }
+
+    public void setClassId(String classId) {
+        this.classId.set(classId);
+    }
+
+    public String getFeeId() {
+        return feeId.get();
+    }
+
+    public SimpleStringProperty feeIdProperty() {
+        return feeId;
+    }
+
+    public void setFeeId(String feeId) {
+        this.feeId.set(feeId);
+    }
+
+    @Override
+    public String toString() {
+        return "BookingDetail " + bookingDetailId.get() +
+                ":\n itineraryNo=" + itineraryNo.get() +
+                ",\n tripStart=" + tripStart.get() +
+                ",\n tripEnd=" + tripEnd.get() +
+                ", description=" + description.get() +
+                ", destination=" + destination.get() +
+                ", basePrice=" + basePrice.get() +
+                ", agencyCommission=" + agencyCommission.get() +
+                ", bookingId=" + bookingId.get() +
+                ", regionId=" + regionId.get() +
+                ", classId=" + classId.get() +
+                ", feeId=" + feeId.get();
     }
 }

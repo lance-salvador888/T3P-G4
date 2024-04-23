@@ -53,7 +53,9 @@ public class MainController {
     @FXML // fx:id="welcomeText"
     private Label welcomeText; // Value injected by FXMLLoader
 
-    private ObservableList<TreeItem<String>> bookings = FXCollections.observableArrayList();
+
+    private ObservableList<Booking> bookings = FXCollections.observableArrayList();
+    private ObservableList<BookingDetails> bookingDetails = FXCollections.observableArrayList();
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
@@ -67,16 +69,9 @@ public class MainController {
         assert welcomeText != null : "fx:id=\"welcomeText\" was not injected: check your FXML file 'main-view.fxml'.";
 
         getBookings();
+        getBookingDetails();
 
-        TreeItem<String> root = new TreeItem<>("Bookings");
-        for (TreeItem<String> booking : bookings){
-
-            root.getChildren().add(booking);
-        }
-
-        tvBookings.setRoot(root);
-
-
+        showBookings();
     }
 
 
@@ -98,10 +93,10 @@ public class MainController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery("select * from bookings");
             while(rs.next()){
-                bookings.add(new TreeItem<>(new Booking(
+                bookings.add(new Booking(
                         rs.getInt(1), rs.getDate(2).toString(),
                         rs.getString(3), rs.getInt(4),
-                        rs.getInt(5), rs.getString(6)).toString()));
+                        rs.getInt(5), rs.getString(6)));
             }
             conn.close();
         }  catch (IOException | SQLException e) {
@@ -109,5 +104,54 @@ public class MainController {
         }
     }
 
+    private void getBookingDetails(){
+        bookingDetails.clear();
 
+        String url = "";
+        String user = "";
+        String password = "";
+
+        try {
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = (String) prop.get("url");
+            user = (String) prop.get("user");
+            password = (String) prop.get("password");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookingdetails");
+            while(rs.next()){
+                bookingDetails.add(new BookingDetails(
+                        rs.getInt(1), rs.getInt(2),
+                        rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6),
+                        rs.getDouble(7), rs.getDouble(8),
+                        rs.getInt(9), rs.getString(10),
+                        rs.getString(11), rs.getString(12)));
+            }
+            conn.close();
+        }  catch (IOException | SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void showBookings() {
+        TreeItem<String> root = new TreeItem<>("Bookings");
+        for (Booking booking : bookings){
+            TreeItem<String> formattedBooking = new TreeItem<>(booking.toString());
+
+            for (BookingDetails bookingDetails : bookingDetails) {
+                if (booking.getBookingId()
+                        == bookingDetails.getBookingId()){
+                    formattedBooking.getChildren()
+                                    .add(new TreeItem<>(bookingDetails.toString()));
+                }
+            }
+
+            root.getChildren().add(formattedBooking);
+        }
+
+        tvBookings.setRoot(root);
+    }
 }
