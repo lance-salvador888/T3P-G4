@@ -53,7 +53,7 @@ public class MainController {
     @FXML // fx:id="welcomeText"
     private Label welcomeText; // Value injected by FXMLLoader
 
-    private ObservableList<TreeItem<Booking>> bookings = FXCollections.observableArrayList();
+    private ObservableList<TreeItem<String>> bookings = FXCollections.observableArrayList();
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
@@ -66,8 +66,16 @@ public class MainController {
         assert tvBookings != null : "fx:id=\"tvBookings\" was not injected: check your FXML file 'main-view.fxml'.";
         assert welcomeText != null : "fx:id=\"welcomeText\" was not injected: check your FXML file 'main-view.fxml'.";
 
-        TreeItem<String> root = new TreeItem<String>("Bookings");
+        getBookings();
+
+        TreeItem<String> root = new TreeItem<>("Bookings");
+        for (TreeItem<String> booking : bookings){
+
+            root.getChildren().add(booking);
+        }
+
         tvBookings.setRoot(root);
+
 
     }
 
@@ -93,7 +101,7 @@ public class MainController {
                 bookings.add(new TreeItem<>(new Booking(
                         rs.getInt(1), rs.getDate(2).toString(),
                         rs.getString(3), rs.getInt(4),
-                        rs.getInt(5), rs.getString(6))));
+                        rs.getInt(5), rs.getString(6)).toString()));
             }
             conn.close();
         }  catch (IOException | SQLException e) {
