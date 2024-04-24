@@ -33,8 +33,6 @@ public class MainController {
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
-    @FXML
-    private ComboBox<?> cbBookings;
 
     @FXML // fx:id="btnAdd"
     private Button btnAdd; // Value injected by FXMLLoader
@@ -118,7 +116,6 @@ public class MainController {
 
     }
     public void populateLineChart() {
-        String selectedDestination = (String) cbBookings.getValue();
 
         lcTravelerGraph.getData().clear();
         XYChart.Series series = new XYChart.Series();

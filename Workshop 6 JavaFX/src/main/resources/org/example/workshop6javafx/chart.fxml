@@ -1,31 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import javafxml_web.*?>
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
+<AnchorPane fx:id="apChart" prefHeight="400.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
    <children>
       <StackedBarChart fx:id="sbcBarChart" layoutX="3.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="sbcCategoryAxis" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="sbcNumberAxis" side="LEFT" />
         </yAxis>
       </StackedBarChart>
       <PieChart fx:id="pcPieChart" layoutX="3.0" />
-      <LineChart fx:id="lcLineChart" layoutX="3.0">
+      <LineChart fx:id="lcLineChart" layoutX="3.0" prefHeight="400.0" prefWidth="541.0" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="0.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="lcCategoryAxis" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="lcNumberAxis" side="LEFT" />
         </yAxis>
       </LineChart>
+      <ToggleButtonGroup fx:id="tbgCharts" layoutX="583.0" layoutY="147.0" prefWidth="131.0" rotate="90.0" selectionType="SINGLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="5.0">
+          <toggles>
+              <ToggleButton>
+                  <graphic>
+                      <Icon fx:id="tbBar" content="FORMAT_ALIGN_LEFT" prefHeight="110.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Icon>
+                  </graphic>
+              </ToggleButton>
+              <ToggleButton selected="true">
+                  <graphic>
+                      <Icon fx:id="tbPie" content="FORMAT_ALIGN_CENTER" prefHeight="110.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Icon>
+                  </graphic>
+              </ToggleButton>
+              <ToggleButton>
+                  <graphic>
+                      <Icon fx:id="tbLine" content="FORMAT_ALIGN_RIGHT" prefHeight="110.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Icon>
+                  </graphic>
+              </ToggleButton>
+          </toggles>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ToggleButtonGroup>
+      <AnchorPane fx:id="apChart1" prefHeight="400.0" prefWidth="750.0">
+         <children>
+            <StackedBarChart fx:id="sbcBarChart1" layoutX="3.0">
+              <xAxis>
+                <CategoryAxis fx:id="sbcCategoryAxis1" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="sbcNumberAxis1" side="LEFT" />
+              </yAxis>
+            </StackedBarChart>
+            <PieChart fx:id="pcPieChart1" layoutX="3.0" />
+            <LineChart fx:id="lcLineChart1" layoutX="3.0" prefHeight="400.0" prefWidth="541.0" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="0.0">
+              <xAxis>
+                <CategoryAxis fx:id="lcCategoryAxis1" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="lcNumberAxis1" side="LEFT" />
+              </yAxis>
+            </LineChart>
+            <ToggleButtonGroup fx:id="tbgCharts1" layoutX="583.0" layoutY="147.0" prefWidth="131.0" rotate="90.0" selectionType="SINGLE" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="5.0">
+                <toggles>
+                    <ToggleButton>
+                        <graphic>
+                            <Icon fx:id="tbBar1" content="FORMAT_ALIGN_LEFT" prefHeight="110.0" prefWidth="110.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Icon>
+                        </graphic>
+                    </ToggleButton>
+                    <ToggleButton selected="true">
+                        <graphic>
+                            <Icon fx:id="tbPie1" content="FORMAT_ALIGN_CENTER" prefHeight="110.0" prefWidth="110.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Icon>
+                        </graphic>
+                    </ToggleButton>
+                    <ToggleButton>
+                        <graphic>
+                            <Icon fx:id="tbLine1" content="FORMAT_ALIGN_RIGHT" prefHeight="110.0" prefWidth="110.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Icon>
+                        </graphic>
+                    </ToggleButton>
+                </toggles>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </ToggleButtonGroup>
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>
