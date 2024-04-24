@@ -13,6 +13,7 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.StackedBarChart;
 import javafx.scene.chart.XYChart;
+import java.time.LocalDate;
 
 public class ChartController {
 
@@ -37,49 +38,19 @@ public class ChartController {
         assert pcPieChart != null : "fx:id=\"pcPieChart\" was not injected: check your FXML file 'chart.fxml'.";
         assert sbcBarChart != null : "fx:id=\"sbcBarChart\" was not injected: check your FXML file 'chart.fxml'.";
 
-        populatePieChart();
+        populateBarGraph();
     }
     public void populateLineChart() {
-        //String selectedDestination = (String) cbBookings.getValue();
-
         lcLineChart.getData().clear();
         XYChart.Series series = new XYChart.Series();
-        String url = "";
-        String user = "";
-        String password = "";
-
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            FileInputStream fis = new FileInputStream("c:\\connection.properties");
-            Properties prop = new Properties();
-            prop.load(fis);
-            url = (String) prop.get("url");
-            user = (String) prop.get("user");
-            password = (String) prop.get("password");
-            Connection conn = DriverManager.getConnection(url, user, password);
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
-            while(rs.next()){
-                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
-            }
-            lcLineChart.getData().add(series);
-            conn.close();
-        }  catch (IOException | SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }
-    public void populateBarGraph() {
-        sbcBarChart.getData().clear(); // Clear previous data
-
-        XYChart.Series series = new XYChart.Series<>();
-
-
+        series.setName("Travelers per Year");
 
         String url = "";
         String user = "";
         String password = "";
+        String sql = "SELECT YEAR(bookingDate) AS bookingYear, SUM(TravelerCount) AS TotalTravelers "
+                + "FROM bookings "
+                + "GROUP BY YEAR(bookingDate)";  // Group by year to get yearly traveler count sum
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -92,20 +63,78 @@ public class ChartController {
 
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select TravelerCount, PackageName   from bookings order by bookingDate join packages " +
-                    "on bookings.packageId = packages.packageId");
+            ResultSet rs = stmt.executeQuery(sql);
 
+            // Use a HashMap to store year and total traveler count (optional)
+            // HashMap<Integer, Integer> travelerCountPerYear = new HashMap<>();
 
             while (rs.next()) {
-                // Debug print to see if data is being retrieved correctly
-                System.out.println("Date: " + rs.getDate(2) + ", Booking: " + rs.getInt(4));
-                series.getData().add(new XYChart.Data<>(rs.getDate(2).toString(), rs.getInt(4)));
+                int year = rs.getInt(1);
+                int totalCount = rs.getInt(2);
+                series.getData().add(new XYChart.Data(String.valueOf(year), totalCount));  // Convert year to String
             }
 
-            sbcBarChart.getData().add(series);
+
+            lcLineChart.getData().add(series);
+
+            // Set Y-axis label (optional)
+            lcLineChart.getYAxis().setLabel("Total Travelers");
+
+            rs.close();
+            stmt.close();
             conn.close();
         } catch (IOException | SQLException | ClassNotFoundException e) {
             e.printStackTrace(); // Print the exception trace for debugging
+            throw new RuntimeException(e);
+        }
+    }
+    public void populateBarGraph() {
+        sbcBarChart.getData().clear();
+
+        XYChart.Series series = new XYChart.Series();
+        series.setName("Travelers per Day of Week");
+
+        String url = "";
+        String user = "";
+        String password = "";
+
+        String sql = "SELECT DAYOFWEEK(bookingDate) AS bookingDay, SUM(TravelerCount) AS totalTravelers "
+                + "FROM bookings "
+                + "GROUP BY DAYOFWEEK(bookingDate)";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = prop.getProperty("url");
+            user = prop.getProperty("user");
+            password = prop.getProperty("password");
+
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                int bookingDay = rs.getInt(1);
+                int totalTravelers = rs.getInt(2);
+
+
+                String dayOfWeek = LocalDate.of(2024, 1, bookingDay).getDayOfWeek().toString();
+
+
+                series.getData().add(new XYChart.Data<>(dayOfWeek, totalTravelers));
+            }
+
+            sbcBarChart.getData().add(series);
+            sbcBarChart.getXAxis().setLabel("Day of Week");
+
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (IOException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
