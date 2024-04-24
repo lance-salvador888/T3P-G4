@@ -18,8 +18,13 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.*;
+
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+
 
 public class MainController {
 
@@ -28,6 +33,8 @@ public class MainController {
 
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
+    @FXML
+    private ComboBox<?> cbBookings;
 
     @FXML // fx:id="btnAdd"
     private Button btnAdd; // Value injected by FXMLLoader
@@ -75,6 +82,7 @@ public class MainController {
         }
 
         tvBookings.setRoot(root);
+        populateLineChart();
 
 
     }
@@ -107,7 +115,40 @@ public class MainController {
         }  catch (IOException | SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
+    public void populateLineChart() {
+        String selectedDestination = (String) cbBookings.getValue();
+
+        lcTravelerGraph.getData().clear();
+        XYChart.Series series = new XYChart.Series();
+        String url = "";
+        String user = "";
+        String password = "";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = (String) prop.get("url");
+            user = (String) prop.get("user");
+            password = (String) prop.get("password");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookings");
+            while(rs.next()){
+                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            }
+            lcTravelerGraph.getData().add(series);
+            conn.close();
+        }  catch (IOException | SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
 
 
 }

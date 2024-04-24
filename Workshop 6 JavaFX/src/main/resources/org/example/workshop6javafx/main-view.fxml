@@ -13,6 +13,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.effect.DropShadow?>
 <VBox prefHeight="738.0" prefWidth="782.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.MainController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -22,9 +25,17 @@
       <font>
          <Font name="Comic Sans MS" size="24.0" />
       </font></Label>
-   <ComboBox prefWidth="150.0" />
-   <TreeView fx:id="tvBookings" prefHeight="200.0" prefWidth="742.0" />
-   <Button mnemonicParsing="false" text="Refresh" />
+
+   <ComboBox fx:id="cbBookings" prefWidth="150.0" />
+   <TreeTableView fx:id="ttvBookings" prefHeight="355.0" prefWidth="742.0" style="-fx-background-color: blue;" tableMenuButtonVisible="true">
+     <columns>
+       <TreeTableColumn fx:id="ttvColBooking" prefWidth="735.0" text="Bookings" />
+     </columns>
+      <effect>
+         <DropShadow />
+      </effect>
+   </TreeTableView>
+
    <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="52.0" prefWidth="742.0" style="-fx-background-color: lightblue;">
       <children>
          <Button fx:id="btnAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="A d d" textAlignment="CENTER">
