@@ -97,4 +97,14 @@ public class Booking {
     public void setBookingTripTypeId(String bookingTripTypeId) {
         this.bookingTripTypeId.set(bookingTripTypeId);
     }
+
+    @Override
+    public String toString() {
+        return "Booking " + bookingId +
+                ": bookingDate=" + bookingDate +
+                ", bookingNo=" + bookingNo +
+                ", bookingTravelerCount=" + bookingTravelerCount +
+                ", bookingCustomerId=" + bookingCustomerId +
+                ", bookingTripTypeId=" + bookingTripTypeId;
+    }
 }
