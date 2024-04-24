@@ -186,7 +186,7 @@ public class ChartController {
             stmt.close();
             conn.close();
         } catch (IOException | SQLException | ClassNotFoundException e) {
-            e.printStackTrace(); // Print the exception trace for debugging
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
