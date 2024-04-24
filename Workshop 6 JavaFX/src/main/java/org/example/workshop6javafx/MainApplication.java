@@ -12,6 +12,11 @@ public class MainApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("chart.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+
+//        // chart controller
+//        ChartController controller = fxmlLoader.getController();
+//        controller.initializeToggle();
+
         stage.setTitle("Travel Experts Data Manager");
         stage.setScene(scene);
         stage.setMinWidth(800);

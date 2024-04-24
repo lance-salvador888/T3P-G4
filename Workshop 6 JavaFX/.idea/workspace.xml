@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="chart xml done, problem with gluon :(">
+    <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="updated gluon stuff. 1043 april 24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/ChartController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/chart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/chart.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,28 +46,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "amit-branch",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.39984226",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;amit-branch&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/amits/Desktop/github-copilot-intellij-1.5.2.5345.zip&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.39984226&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nicholas\Documents\GitHub\T3P-G4\Workshop 6 JavaFX\src\main\resources\org\example\workshop6javafx" />
@@ -112,7 +114,9 @@
       <workItem from="1713840386898" duration="2392000" />
       <workItem from="1713912909540" duration="3123000" />
       <workItem from="1713976005313" duration="294000" />
-      <workItem from="1713976307621" duration="466000" />
+      <workItem from="1713976307621" duration="2094000" />
+      <workItem from="1713988100408" duration="4785000" />
+      <workItem from="1713999293829" duration="2697000" />
     </task>
     <task id="LOCAL-00001" summary="chart xml done, problem with gluon :(">
       <option name="closed" value="true" />
@@ -130,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713924073351</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="updated gluon stuff. 1043 april 24">
+      <option name="closed" value="true" />
+      <created>1713976992708</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713976992708</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +161,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chart xml done, problem with gluon :(" />
-    <option name="LAST_COMMIT_MESSAGE" value="chart xml done, problem with gluon :(" />
+    <MESSAGE value="updated gluon stuff. 1043 april 24" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated gluon stuff. 1043 april 24" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
