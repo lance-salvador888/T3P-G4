@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-04-22_5_25_p_m___Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-04-22_5_25_p_m___Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-04-22_5_25_p_m___Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-04-22_5_25_p_m___Changes_1.xml" afterDir="false" />
+    <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="chart xml done, problem with gluon :(">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/ChartController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/chart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/chart.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +25,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AmitShalev0&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lance-salvador888/T3P-G4.git&quot;,
+    &quot;accountId&quot;: &quot;1842f8c4-8954-41b1-a313-111a8c6fc6b0&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -56,6 +63,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.39984226",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -87,7 +95,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
       </set>
     </attachedChunks>
   </component>
@@ -102,7 +111,26 @@
       <workItem from="1713835545925" duration="1257000" />
       <workItem from="1713840386898" duration="2392000" />
       <workItem from="1713912909540" duration="3123000" />
+      <workItem from="1713976005313" duration="294000" />
+      <workItem from="1713976307621" duration="466000" />
     </task>
+    <task id="LOCAL-00001" summary="chart xml done, problem with gluon :(">
+      <option name="closed" value="true" />
+      <created>1713924059510</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713924059510</updated>
+    </task>
+    <task id="LOCAL-00002" summary="chart xml done, problem with gluon :(">
+      <option name="closed" value="true" />
+      <created>1713924073351</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713924073351</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,5 +146,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="chart xml done, problem with gluon :(" />
+    <option name="LAST_COMMIT_MESSAGE" value="chart xml done, problem with gluon :(" />
   </component>
 </project>
