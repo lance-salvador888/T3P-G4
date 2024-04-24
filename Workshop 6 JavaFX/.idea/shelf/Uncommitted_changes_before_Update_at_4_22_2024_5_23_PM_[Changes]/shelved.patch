@@ -1,0 +1,254 @@
+Index: src/main/resources/org/example/workshop6javafx/main-view.fxml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n\r\n<?import javafx.geometry.Insets?>\r\n<?import javafx.scene.chart.CategoryAxis?>\r\n<?import javafx.scene.chart.LineChart?>\r\n<?import javafx.scene.chart.NumberAxis?>\r\n<?import javafx.scene.control.Button?>\r\n<?import javafx.scene.control.ComboBox?>\r\n<?import javafx.scene.control.Label?>\r\n<?import javafx.scene.control.TreeTableColumn?>\r\n<?import javafx.scene.control.TreeTableView?>\r\n<?import javafx.scene.effect.DropShadow?>\r\n<?import javafx.scene.effect.Reflection?>\r\n<?import javafx.scene.layout.HBox?>\r\n<?import javafx.scene.layout.VBox?>\r\n<?import javafx.scene.text.Font?>\r\n\r\n<VBox prefHeight=\"738.0\" prefWidth=\"782.0\" spacing=\"20.0\" xmlns=\"http://javafx.com/javafx/21\" xmlns:fx=\"http://javafx.com/fxml/1\" fx:controller=\"org.example.workshop6javafx.MainController\">\r\n    <padding>\r\n        <Insets bottom=\"20.0\" left=\"20.0\" right=\"20.0\" top=\"20.0\" />\r\n    </padding>\r\n\r\n    <Label fx:id=\"welcomeText\" text=\"My Travel Experts Management &lt;3\" textFill=\"#ff00d9\">\r\n      <font>\r\n         <Font name=\"Comic Sans MS\" size=\"24.0\" />\r\n      </font></Label>\r\n   <ComboBox prefWidth=\"150.0\" />\r\n   <TreeTableView fx:id=\"ttvBookings\" prefHeight=\"355.0\" prefWidth=\"742.0\" style=\"-fx-background-color: blue;\" tableMenuButtonVisible=\"true\">\r\n     <columns>\r\n       <TreeTableColumn fx:id=\"ttvColBooking\" prefWidth=\"735.0\" text=\"Bookings\" />\r\n     </columns>\r\n      <effect>\r\n         <DropShadow />\r\n      </effect>\r\n   </TreeTableView>\r\n   <HBox alignment=\"CENTER\" maxWidth=\"1.7976931348623157E308\" prefHeight=\"52.0\" prefWidth=\"742.0\" style=\"-fx-background-color: lightblue;\">\r\n      <children>\r\n         <Button fx:id=\"btnAdd\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\" prefWidth=\"200.0\" text=\"A d d\" textAlignment=\"CENTER\">\r\n            <HBox.margin>\r\n               <Insets left=\"10.0\" right=\"10.0\" />\r\n            </HBox.margin>\r\n            <font>\r\n               <Font name=\"Broadway\" size=\"25.0\" />\r\n            </font>\r\n         </Button>\r\n         <Button fx:id=\"btnEdit\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\" prefHeight=\"20.0\" prefWidth=\"200.0\" text=\"E d i t\" textAlignment=\"CENTER\">\r\n            <HBox.margin>\r\n               <Insets left=\"10.0\" right=\"10.0\" />\r\n            </HBox.margin>\r\n            <font>\r\n               <Font name=\"Broadway\" size=\"25.0\" />\r\n            </font>\r\n         </Button>\r\n         <Button fx:id=\"btnDelete\" maxWidth=\"1.7976931348623157E308\" mnemonicParsing=\"false\" prefWidth=\"200.0\" text=\"D e l e t e\" textAlignment=\"CENTER\">\r\n            <HBox.margin>\r\n               <Insets left=\"10.0\" right=\"10.0\" />\r\n            </HBox.margin>\r\n            <font>\r\n               <Font name=\"Broadway\" size=\"25.0\" />\r\n            </font>\r\n         </Button>\r\n      </children>\r\n      <effect>\r\n         <Reflection bottomOpacity=\"0.01\" fraction=\"0.8\" topOpacity=\"0.46\" />\r\n      </effect>\r\n      <padding>\r\n         <Insets bottom=\"5.0\" top=\"5.0\" />\r\n      </padding>\r\n      <VBox.margin>\r\n         <Insets />\r\n      </VBox.margin>\r\n   </HBox>\r\n   <LineChart fx:id=\"lcTravelerGraph\" alternativeColumnFillVisible=\"true\" prefHeight=\"389.0\" prefWidth=\"742.0\" style=\"-fx-background-color: aqua;\" title=\"Traveler Count as a function of Date\">\r\n     <xAxis>\r\n       <CategoryAxis fx:id=\"lcXDate\" label=\"Date\" side=\"BOTTOM\" />\r\n     </xAxis>\r\n     <yAxis>\r\n       <NumberAxis fx:id=\"lcYTravelerCount\" label=\"Traveler Count\" side=\"LEFT\" />\r\n     </yAxis>\r\n   </LineChart>\r\n</VBox>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/org/example/workshop6javafx/main-view.fxml b/src/main/resources/org/example/workshop6javafx/main-view.fxml
+--- a/src/main/resources/org/example/workshop6javafx/main-view.fxml	
++++ b/src/main/resources/org/example/workshop6javafx/main-view.fxml	
+@@ -15,7 +15,7 @@
+ <?import javafx.scene.layout.VBox?>
+ <?import javafx.scene.text.Font?>
+ 
+-<VBox prefHeight="738.0" prefWidth="782.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.MainController">
++<VBox fx:id="vbMain" prefHeight="738.0" prefWidth="782.0" spacing="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.MainController">
+     <padding>
+         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+     </padding>
+@@ -24,7 +24,7 @@
+       <font>
+          <Font name="Comic Sans MS" size="24.0" />
+       </font></Label>
+-   <ComboBox prefWidth="150.0" />
++   <ComboBox fx:id="cbMain" prefWidth="150.0" />
+    <TreeTableView fx:id="ttvBookings" prefHeight="355.0" prefWidth="742.0" style="-fx-background-color: blue;" tableMenuButtonVisible="true">
+      <columns>
+        <TreeTableColumn fx:id="ttvColBooking" prefWidth="735.0" text="Bookings" />
+@@ -33,7 +33,7 @@
+          <DropShadow />
+       </effect>
+    </TreeTableView>
+-   <HBox alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="52.0" prefWidth="742.0" style="-fx-background-color: lightblue;">
++   <HBox fx:id="hbButtons" alignment="CENTER" maxWidth="1.7976931348623157E308" prefHeight="52.0" prefWidth="742.0" style="-fx-background-color: lightblue;">
+       <children>
+          <Button fx:id="btnAdd" maxWidth="1.7976931348623157E308" mnemonicParsing="false" prefWidth="200.0" text="A d d" textAlignment="CENTER">
+             <HBox.margin>
+Index: ../.idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f13edd61-da62-40cf-907a-49d29baa208b\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Workshop 6 JavaFX/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Workshop 6 JavaFX/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Workshop 6 JavaFX/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Workshop 6 JavaFX/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/Workshop 6 JavaFX/src/main/java/org/example/workshop6javafx/MainController.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/Workshop 6 JavaFX/src/main/java/org/example/workshop6javafx/MainController.java\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fIZkxWSi0JYbcLxo3G4IkfRvRR\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/orangentle/Documents/GitHub/T3P-G4/Workshop 6 JavaFX\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.detected.package.tslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Libraries\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.5471264\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240\" />\r\n        <option value=\"bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f13edd61-da62-40cf-907a-49d29baa208b\" name=\"Changes\" comment=\"\" />\r\n      <created>1713490698989</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713490698989</updated>\r\n      <workItem from=\"1713490700304\" duration=\"701000\" />\r\n      <workItem from=\"1713764240411\" duration=\"1756000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../.idea/workspace.xml b/../.idea/workspace.xml
+--- a/../.idea/workspace.xml	
++++ b/../.idea/workspace.xml	
+@@ -5,11 +5,7 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="f13edd61-da62-40cf-907a-49d29baa208b" name="Changes" comment="">
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop 6 JavaFX/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/Workshop 6 JavaFX/src/main/java/org/example/workshop6javafx/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Workshop 6 JavaFX/src/main/java/org/example/workshop6javafx/MainController.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -17,6 +13,11 @@
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+   </component>
+   <component name="Git.Settings">
++    <option name="RECENT_BRANCH_BY_REPOSITORY">
++      <map>
++        <entry key="$PROJECT_DIR$" value="main" />
++      </map>
++    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="ProjectColorInfo">{
+@@ -34,19 +35,86 @@
+     "Repository.Attach.JavaDocs": "false",
+     "Repository.Attach.Sources": "false",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
++    "git-widget-placeholder": "amit-branch",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/orangentle/Documents/GitHub/T3P-G4/Workshop 6 JavaFX",
++    "last_opened_file_path": "C:/Users/amits/GitHub/T3P-G4/Workshop 6 JavaFX",
+     "node.js.detected.package.eslint": "true",
+     "node.js.detected.package.tslint": "true",
+     "node.js.selected.package.eslint": "(autodetect)",
+     "node.js.selected.package.tslint": "(autodetect)",
+     "nodejs_package_manager_path": "npm",
+-    "project.structure.last.edited": "Libraries",
++    "project.structure.last.edited": "SDKs",
+     "project.structure.proportion": "0.15",
+     "project.structure.side.proportion": "0.5471264",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
++  <component name="RunManager">
++    <configuration name="Unnamed" type="JBossConfiguration" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
++      <option name="UPDATING_POLICY" value="restart-server" />
++      <deployment />
++      <server-settings>
++        <option name="SERVER" />
++        <option name="BINDING_SET_NAME" value="" />
++        <option name="DOMAIN" value="false" />
++        <option name="SERVER_GROUP" />
++        <option name="USERNAME" value="" />
++        <option name="CREDENTIAL_ALIAS" />
++      </server-settings>
++      <predefined_log_file enabled="true" id="JBoss" />
++      <RunnerSettings RunnerId="Debug">
++        <option name="DEBUG_PORT" value="52834" />
++      </RunnerSettings>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
++        <option name="USE_ENV_VARIABLES" value="true" />
++        <STARTUP>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </STARTUP>
++        <SHUTDOWN>
++          <option name="USE_DEFAULT" value="true" />
++          <option name="SCRIPT" value="" />
++          <option name="VM_PARAMETERS" value="" />
++          <option name="PROGRAM_PARAMETERS" value="" />
++        </SHUTDOWN>
++      </ConfigurationWrapper>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -65,6 +133,8 @@
+       <updated>1713490698989</updated>
+       <workItem from="1713490700304" duration="701000" />
+       <workItem from="1713764240411" duration="1756000" />
++      <workItem from="1713824292678" duration="1417000" />
++      <workItem from="1713825967252" duration="407000" />
+     </task>
+     <servers />
+   </component>
+Index: src/main/java/module-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>module org.example.workshop6javafx {\r\n    requires javafx.controls;\r\n    requires javafx.fxml;\r\n    \r\n\r\n\r\n    opens org.example.workshop6javafx to javafx.fxml;\r\n    exports org.example.workshop6javafx;\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/module-info.java b/src/main/java/module-info.java
+--- a/src/main/java/module-info.java	
++++ b/src/main/java/module-info.java	
+@@ -1,7 +1,7 @@
+ module org.example.workshop6javafx {
+     requires javafx.controls;
+     requires javafx.fxml;
+-    
++    requires java.sql;
+ 
+ 
+     opens org.example.workshop6javafx to javafx.fxml;
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" default=\"true\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n  <component name=\"ProjectType\">\r\n    <option name=\"id\" value=\"jpab\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -8,7 +8,7 @@
+       </list>
+     </option>
+   </component>
+-  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21 (2)" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+   <component name="ProjectType">
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"caf726bf-7b29-478f-9e89-9cded9603b42\" name=\"Changes\" comment=\"Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/jpa-buddy.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/BookingDetails.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/..\" />\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"mavenHomeTypeForPersistence\" value=\"WRAPPER\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 3\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2fRZfKQp5GnmCMoQ2qV6BXZXryB\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Downloaded.Files.Path.Enabled\": \"false\",\r\n    \"Repository.Attach.Annotations\": \"false\",\r\n    \"Repository.Attach.JavaDocs\": \"false\",\r\n    \"Repository.Attach.Sources\": \"false\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"main\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/orangentle/.m2/repository/org/openjfx/javafx-controls/20.0.1\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"project.structure.last.edited\": \"Project\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.39984226\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CreateClassDialog.RecentsKey\">\r\n      <recent name=\"org.example.workshop6javafx\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"caf726bf-7b29-478f-9e89-9cded9603b42\" name=\"Changes\" comment=\"set min width/height of window, changed window title\" />\r\n      <created>1713765952708</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1713765952708</updated>\r\n      <workItem from=\"1713765953737\" duration=\"1752000\" />\r\n      <workItem from=\"1713767719295\" duration=\"689000\" />\r\n      <workItem from=\"1713768436734\" duration=\"2787000\" />\r\n      <workItem from=\"1713823769816\" duration=\"1686000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1713778470419</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1713778470419</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"2\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,10 +5,11 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="caf726bf-7b29-478f-9e89-9cded9603b42" name="Changes" comment="Updated libraries, Made Booking.java, updated the TreeTableView to only have one column (multi-column won't work for what we're trying to do)">
+-      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/BookingDetails.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/main-view.fxml" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -42,6 +43,7 @@
+   </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
++    "Application.MainApplication.executor": "Run",
+     "Downloaded.Files.Path.Enabled": "false",
+     "Repository.Attach.Annotations": "false",
+     "Repository.Attach.JavaDocs": "false",
+@@ -49,7 +51,7 @@
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "main",
++    "git-widget-placeholder": "amit-branch",
+     "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+     "last_opened_file_path": "C:/Users/orangentle/.m2/repository/org/openjfx/javafx-controls/20.0.1",
+@@ -60,6 +62,7 @@
+     "project.structure.last.edited": "Project",
+     "project.structure.proportion": "0.15",
+     "project.structure.side.proportion": "0.39984226",
++    "settings.editor.selected.configurable": "preferences.pluginManager",
+     "vue.rearranger.settings.migration": "true"
+   }
+ }]]></component>
