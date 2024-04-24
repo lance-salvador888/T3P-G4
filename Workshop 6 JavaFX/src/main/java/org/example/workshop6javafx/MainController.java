@@ -136,7 +136,7 @@ public class MainController {
             password = (String) prop.get("password");
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from bookings");
+            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
             while(rs.next()){
                 series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
             }
