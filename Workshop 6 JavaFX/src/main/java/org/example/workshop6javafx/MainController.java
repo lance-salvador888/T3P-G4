@@ -82,7 +82,7 @@ public class MainController {
         }
 
         tvBookings.setRoot(root);
-        populateLineChart();
+        //populateLineChart();
 
 
     }
@@ -117,7 +117,7 @@ public class MainController {
         }
 
     }
-    public void populateLineChart() {
+    /*public void populateLineChart() {
         String selectedDestination = (String) cbBookings.getValue();
 
         lcTravelerGraph.getData().clear();
@@ -147,7 +147,7 @@ public class MainController {
         }
 
 
-    }
+    }*/
 
 
 

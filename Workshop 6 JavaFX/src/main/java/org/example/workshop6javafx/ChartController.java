@@ -38,7 +38,7 @@ public class ChartController {
         assert pcPieChart != null : "fx:id=\"pcPieChart\" was not injected: check your FXML file 'chart.fxml'.";
         assert sbcBarChart != null : "fx:id=\"sbcBarChart\" was not injected: check your FXML file 'chart.fxml'.";
 
-        populateBarGraph();
+        populatePieChart();
     }
     public void populateLineChart() {
         lcLineChart.getData().clear();
