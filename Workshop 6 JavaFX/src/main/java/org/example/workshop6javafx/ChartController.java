@@ -4,8 +4,10 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
-import java.util.Properties;
-import java.util.ResourceBundle;
+import java.util.*;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.PieChart;
@@ -35,7 +37,7 @@ public class ChartController {
         assert pcPieChart != null : "fx:id=\"pcPieChart\" was not injected: check your FXML file 'chart.fxml'.";
         assert sbcBarChart != null : "fx:id=\"sbcBarChart\" was not injected: check your FXML file 'chart.fxml'.";
 
-        populateBarGraph();
+        populatePieChart();
     }
     public void populateLineChart() {
         //String selectedDestination = (String) cbBookings.getValue();
@@ -69,10 +71,12 @@ public class ChartController {
 
     }
     public void populateBarGraph() {
-        //String selectedDestination = (String) cbBookings.getValue();
+        sbcBarChart.getData().clear(); // Clear previous data
 
-        sbcBarChart.getData().clear();
-        XYChart.Series series = new XYChart.Series();
+        XYChart.Series series = new XYChart.Series<>();
+
+
+
         String url = "";
         String user = "";
         String password = "";
@@ -82,54 +86,81 @@ public class ChartController {
             FileInputStream fis = new FileInputStream("c:\\connection.properties");
             Properties prop = new Properties();
             prop.load(fis);
-            url = (String) prop.get("url");
-            user = (String) prop.get("user");
-            password = (String) prop.get("password");
+            url = prop.getProperty("url");
+            user = prop.getProperty("user");
+            password = prop.getProperty("password");
+
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
-            while(rs.next()){
-                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            ResultSet rs = stmt.executeQuery("select TravelerCount, PackageName   from bookings order by bookingDate join packages " +
+                    "on bookings.packageId = packages.packageId");
+
+
+            while (rs.next()) {
+                // Debug print to see if data is being retrieved correctly
+                System.out.println("Date: " + rs.getDate(2) + ", Booking: " + rs.getInt(4));
+                series.getData().add(new XYChart.Data<>(rs.getDate(2).toString(), rs.getInt(4)));
             }
+
             sbcBarChart.getData().add(series);
             conn.close();
-        }  catch (IOException | SQLException | ClassNotFoundException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace(); // Print the exception trace for debugging
             throw new RuntimeException(e);
         }
-
-
     }
 
-    /*public void populatePieChart() {
-        //String selectedDestination = (String) cbBookings.getValue();
-
+    public void populatePieChart() {
         pcPieChart.getData().clear();
-        XYChart.Series series = new XYChart.Series();
+
         String url = "";
         String user = "";
         String password = "";
+        String sql = "SELECT tt.TTName, SUM(b.TravelerCount) AS TotalTravelers "
+                + "FROM bookings b "
+                + "INNER JOIN TripTypes tt ON b.TripTypeId = tt.TripTypeId "
+                + "GROUP BY tt.TTName";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             FileInputStream fis = new FileInputStream("c:\\connection.properties");
             Properties prop = new Properties();
             prop.load(fis);
-            url = (String) prop.get("url");
-            user = (String) prop.get("user");
-            password = (String) prop.get("password");
+            url = prop.getProperty("url");
+            user = prop.getProperty("user");
+            password = prop.getProperty("password");
+
             Connection conn = DriverManager.getConnection(url, user, password);
             Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
-            while(rs.next()){
-                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            ResultSet rs = stmt.executeQuery(sql);
+
+
+            Map<String, Integer> travelerCountPerTripType = new HashMap<>();
+            int totalCount = 0; // Keep track of the total traveler count
+            while (rs.next()) {
+                travelerCountPerTripType.put(rs.getString(1), rs.getInt(2));
+                totalCount += rs.getInt(2);
             }
-            pcPieChart.getData().add(series);
+
+
+            ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+            for (Map.Entry<String, Integer> entry : travelerCountPerTripType.entrySet()) {
+                double percentage = ((double) entry.getValue() / totalCount) * 100;
+                pieChartData.add(new PieChart.Data(entry.getKey() + " (" + String.format("%.2f", percentage) + "%)", entry.getValue()));
+            }
+
+
+            pcPieChart.setData(pieChartData);
+            pcPieChart.setLabelsVisible(false); // Hide default labels inside slices (optional)
+
+            rs.close();
+            stmt.close();
             conn.close();
-        }  catch (IOException | SQLException | ClassNotFoundException e) {
+        } catch (IOException | SQLException | ClassNotFoundException e) {
+            e.printStackTrace(); // Print the exception trace for debugging
             throw new RuntimeException(e);
         }
+    }
 
-
-    }*/
 
 }
