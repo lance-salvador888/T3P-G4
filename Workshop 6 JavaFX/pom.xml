@@ -5,13 +5,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>JavaWinter2024Day6JDBC</artifactId>
+    <artifactId>Workshop6JavaFX</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>JavaWinter2024Day6JDBC</name>
+    <name>Workshop6JavaFX</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.9.2</junit.version>
+        <attach.version>4.0.19</attach.version>
     </properties>
 
     <dependencies>
@@ -47,6 +48,11 @@
             <version>6.2.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-glisten -->
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>util</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
 
 
         <dependency>
