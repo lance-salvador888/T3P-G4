@@ -35,11 +35,12 @@ public class ChartController {
         assert pcPieChart != null : "fx:id=\"pcPieChart\" was not injected: check your FXML file 'chart.fxml'.";
         assert sbcBarChart != null : "fx:id=\"sbcBarChart\" was not injected: check your FXML file 'chart.fxml'.";
 
+        populateBarGraph();
     }
     public void populateLineChart() {
-        String selectedDestination = (String) cbBookings.getValue();
+        //String selectedDestination = (String) cbBookings.getValue();
 
-        lcTravelerGraph.getData().clear();
+        lcLineChart.getData().clear();
         XYChart.Series series = new XYChart.Series();
         String url = "";
         String user = "";
@@ -59,7 +60,7 @@ public class ChartController {
             while(rs.next()){
                 series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
             }
-            lcTravelerGraph.getData().add(series);
+            lcLineChart.getData().add(series);
             conn.close();
         }  catch (IOException | SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
@@ -67,5 +68,68 @@ public class ChartController {
 
 
     }
+    public void populateBarGraph() {
+        //String selectedDestination = (String) cbBookings.getValue();
+
+        sbcBarChart.getData().clear();
+        XYChart.Series series = new XYChart.Series();
+        String url = "";
+        String user = "";
+        String password = "";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = (String) prop.get("url");
+            user = (String) prop.get("user");
+            password = (String) prop.get("password");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
+            while(rs.next()){
+                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            }
+            sbcBarChart.getData().add(series);
+            conn.close();
+        }  catch (IOException | SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }
+
+    /*public void populatePieChart() {
+        //String selectedDestination = (String) cbBookings.getValue();
+
+        pcPieChart.getData().clear();
+        XYChart.Series series = new XYChart.Series();
+        String url = "";
+        String user = "";
+        String password = "";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = (String) prop.get("url");
+            user = (String) prop.get("user");
+            password = (String) prop.get("password");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
+            while(rs.next()){
+                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            }
+            pcPieChart.getData().add(series);
+            conn.close();
+        }  catch (IOException | SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+
+    }*/
 
 }
