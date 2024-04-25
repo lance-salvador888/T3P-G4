@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="491.0" prefWidth="855.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.BookingDetailsController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="Travel Experts Management" textFill="#4fa8a8">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="718.0" layoutY="17.0" text="Booking Details">
+         <font>
+            <Font name="Calibri" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="223.0" text="Itinerary No.">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="73.0" text="Trip Start">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="123.0" text="Trip End">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="173.0" text="Description">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="323.0" text="Destination">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="472.0" layoutY="173.0" text="Fee ID">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="470.0" layoutY="73.0" text="Agency Commission">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="373.0" text="Region ID">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="21.0" layoutY="273.0" text="Class ID">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="472.0" layoutY="123.0" text="Base Price">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="472.0" layoutY="223.0" text="Product Supplier ID">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnSave" alignment="CENTER" layoutX="454.0" layoutY="440.0" onAction="#onSaveButtonClick" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Save" textFill="#ffffff" />
+      <Button fx:id="btnClose" alignment="CENTER" layoutX="722.0" layoutY="440.0" onAction="#onCloseButtonClick" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Close" textFill="#ffffff" />
+      <Button fx:id="btnEdit" alignment="CENTER" layoutX="320.0" layoutY="440.0" onAction="#onEditButtonClick" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Edit" textFill="#ffffff" />
+      <DatePicker fx:id="tripStartDatePicker" layoutX="126.0" layoutY="72.0" prefWidth="320.0" />
+      <DatePicker fx:id="tripEndDatePicker" layoutX="126.0" layoutY="122.0" prefWidth="320.0" />
+      <TextField fx:id="descriptionTextField" layoutX="126.0" layoutY="172.0" prefHeight="25.0" prefWidth="320.0" />
+      <TextField fx:id="itineraryNoTextField" layoutX="126.0" layoutY="222.0" prefHeight="25.0" prefWidth="320.0" />
+      <TextField fx:id="destinationTextField" layoutX="126.0" layoutY="322.0" prefHeight="25.0" prefWidth="320.0" />
+      <TextField fx:id="agencyCommissionTextField" layoutX="628.0" layoutY="72.0" prefHeight="25.0" prefWidth="207.0" />
+      <TextField fx:id="basePriceTextField" layoutX="628.0" layoutY="122.0" prefHeight="25.0" prefWidth="207.0" />
+      <ComboBox fx:id="feeidcbox" layoutX="628.0" layoutY="172.0" prefHeight="25.0" prefWidth="207.0" />
+      <ComboBox fx:id="productSupplierIdComboBox" layoutX="628.0" layoutY="222.0" prefHeight="25.0" prefWidth="207.0" />
+      <ComboBox fx:id="regionidcbox" layoutX="126.0" layoutY="372.0" prefHeight="25.0" prefWidth="320.0" />
+      <ComboBox fx:id="classidcbox" layoutX="126.0" layoutY="272.0" prefHeight="25.0" prefWidth="320.0" />
+      <Button fx:id="btnDelete" alignment="CENTER" layoutX="589.0" layoutY="440.0" onAction="#onDeleteButtonClick" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Delete" textFill="#ffffff" />
+   </children>
+</AnchorPane>

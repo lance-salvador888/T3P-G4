@@ -1,110 +1,107 @@
 package org.example.workshop6javafx;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
-
-import java.sql.Date;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 
 public class Booking {
-    private SimpleIntegerProperty bookingId;
-    private SimpleStringProperty bookingDate;
-    private SimpleStringProperty bookingNo;
-    private SimpleIntegerProperty bookingTravelerCount;
-    private SimpleIntegerProperty bookingCustomerId;
-    private SimpleStringProperty bookingTripTypeId;
-    // private SimpleIntegerProperty PackageId;
-    // ^commenting this out rn cause idk if it's gonna get used
+    private final SimpleIntegerProperty bookingId;
+    private final SimpleObjectProperty<LocalDate> bookingDate;
+    private final SimpleStringProperty bookingNo;
+    private final SimpleIntegerProperty travelerCount;
+    private final SimpleIntegerProperty customerId;
+    private final SimpleStringProperty tripTypeId;
+    private final SimpleObjectProperty<Integer> packageId;
 
-    public Booking(int bookingId, String bookingDate, String bookingNo,
-                   int travelerCount, int customerId, String tripTypeId ) {
+    public Booking(int bookingId, LocalDate bookingDate, String bookingNo, int travelerCount,
+                   int customerId, String tripTypeId, Integer packageId) {
         this.bookingId = new SimpleIntegerProperty(bookingId);
-        this.bookingDate = new SimpleStringProperty(bookingDate);
+        this.bookingDate = new SimpleObjectProperty<>(bookingDate);
         this.bookingNo = new SimpleStringProperty(bookingNo);
-        this.bookingTravelerCount = new SimpleIntegerProperty(travelerCount);
-        this.bookingCustomerId = new SimpleIntegerProperty(customerId);
-        this.bookingTripTypeId = new SimpleStringProperty(tripTypeId);
+        this.travelerCount = new SimpleIntegerProperty(travelerCount);
+        this.customerId = new SimpleIntegerProperty(customerId);
+        this.tripTypeId = new SimpleStringProperty(tripTypeId);
+        this.packageId = new SimpleObjectProperty<>(packageId);
     }
+
 
     public int getBookingId() {
         return bookingId.get();
     }
-
+    public void setBookingId(int bookingId) {
+        this.bookingId.set(bookingId);
+    }
     public SimpleIntegerProperty bookingIdProperty() {
         return bookingId;
     }
 
-    public void setBookingId(int bookingId) {
-        this.bookingId.set(bookingId);
-    }
 
     public String getBookingDate() {
-        return bookingDate.get();
+        LocalDate date = bookingDate.get();
+        return date != null ? date.toString() : "N/A";
     }
-
-    public SimpleStringProperty bookingDateProperty() {
+    public void setBookingDate(LocalDate bookingDate) {
+        this.bookingDate.set(bookingDate);
+    }
+    public SimpleObjectProperty<LocalDate> bookingDateProperty() {
         return bookingDate;
     }
 
-    public void setBookingDate(String bookingDate) {
-        this.bookingDate.set(bookingDate);
-    }
 
     public String getBookingNo() {
         return bookingNo.get();
     }
-
+    public void setBookingNo(String bookingNo) {
+        this.bookingNo.set(bookingNo);
+    }
     public SimpleStringProperty bookingNoProperty() {
         return bookingNo;
     }
 
-    public void setBookingNo(String bookingNo) {
-        this.bookingNo.set(bookingNo);
+
+    public int getTravelerCount() {
+        return travelerCount.get();
+    }
+    public void setTravelerCount(int travelerCount) {
+        this.travelerCount.set(travelerCount);
+    }
+    public SimpleIntegerProperty travelerCountProperty() {
+        return travelerCount;
     }
 
-    public int getBookingTravelerCount() {
-        return bookingTravelerCount.get();
+
+    public int getCustomerId() {
+        return customerId.get();
+    }
+    public void setCustomerId(int customerId) {
+        this.customerId.set(customerId);
+    }
+    public SimpleIntegerProperty customerIdProperty() {
+        return customerId;
     }
 
-    public SimpleIntegerProperty bookingTravelerCountProperty() {
-        return bookingTravelerCount;
+
+    public String getTripTypeId() {
+        return tripTypeId.get();
+    }
+    public void setTripTypeId(String tripTypeId) {
+        this.tripTypeId.set(tripTypeId);
+    }
+    public SimpleStringProperty tripTypeIdProperty() {
+        return tripTypeId;
     }
 
-    public void setBookingTravelerCount(int bookingTravelerCount) {
-        this.bookingTravelerCount.set(bookingTravelerCount);
-    }
 
-    public int getBookingCustomerId() {
-        return bookingCustomerId.get();
+    public String getPackageId() {
+        Integer id = packageId.get();
+        return id != null ? String.valueOf(id) : "N/A";
     }
-
-    public SimpleIntegerProperty bookingCustomerIdProperty() {
-        return bookingCustomerId;
-    }
-
-    public void setBookingCustomerId(int bookingCustomerId) {
-        this.bookingCustomerId.set(bookingCustomerId);
-    }
-
-    public String getBookingTripTypeId() {
-        return bookingTripTypeId.get();
-    }
-
-    public SimpleStringProperty bookingTripTypeIdProperty() {
-        return bookingTripTypeId;
-    }
-
-    public void setBookingTripTypeId(String bookingTripTypeId) {
-        this.bookingTripTypeId.set(bookingTripTypeId);
-    }
-
-    @Override
-    public String toString() {
-        return "Booking " + bookingId.getValue()+
-                ": bookingDate=" + bookingDate.get() +
-                ", bookingNo=" + bookingNo.get() +
-                ", bookingTravelerCount=" + bookingTravelerCount.get() +
-                ", bookingCustomerId=" + bookingCustomerId.getValue() +
-                ", bookingTripTypeId=" + bookingTripTypeId.get();
+    public void setPackageId(String packageIdStr) {
+        if (packageIdStr != null) {
+            this.packageId.set(Integer.parseInt(packageIdStr));
+        } else {
+            this.packageId.set(null);
+        }
     }
 }
