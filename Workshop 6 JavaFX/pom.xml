@@ -12,8 +12,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <junit.version>5.10.0</junit.version>  </properties>
+        <junit.version>5.10.0</junit.version>
         <attach.version>4.0.19</attach.version>
+    </properties>
 
     <dependencies>
         <dependency>

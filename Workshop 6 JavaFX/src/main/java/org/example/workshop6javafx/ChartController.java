@@ -100,6 +100,13 @@ public class ChartController {
         pcPieChart.setVisible(false);
         lcLineChart.setVisible(true);
 
+        populateBarGraph();
+        populateLineChart();
+        populatePieChart();
+
+        initializeToggle();
+
+
     }
     public void populateLineChart() {
         lcLineChart.getData().clear();
