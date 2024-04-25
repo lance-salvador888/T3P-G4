@@ -39,6 +39,6 @@
       <Button fx:id="btnEdit" alignment="CENTER" layoutX="308.0" layoutY="967.0" onAction="#editBooking" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Edit" textFill="#ffffff" />
       <Button fx:id="btnDelete" alignment="CENTER" layoutX="442.0" layoutY="967.0" onAction="#deleteBooking" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Delete" textFill="#ffffff" />
       <Button fx:id="btnViewDetails" alignment="CENTER" layoutX="582.0" layoutY="967.0" onAction="#viewDetails" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="View Details" textFill="#ffffff" />
-      <Button fx:id="btnStatistics" alignment="CENTER" layoutX="720.0" layoutY="967.0" onAction="#viewStatistics" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Statistics" textFill="#ffffff" />
+      <Button fx:id="btnStatistics" alignment="CENTER" layoutX="720.0" layoutY="967.0" onAction="#viewCharts" prefHeight="35.0" prefWidth="119.0" style="-fx-background-color: #4fa8a8; -fx-text-alignment: center; -fx-font-size: 16;" text="Statistics" textFill="#ffffff" />
    </children>
 </Pane>

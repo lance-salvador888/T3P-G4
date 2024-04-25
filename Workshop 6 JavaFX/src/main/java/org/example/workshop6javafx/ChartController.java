@@ -1,3 +1,7 @@
+/**
+ * Controller Class for 'chart.fxml'
+ * By: Nicholas Wagner
+ */
 package org.example.workshop6javafx;
 
 import java.io.FileInputStream;

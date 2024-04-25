@@ -277,10 +277,20 @@ public class MainController {
         }
     }
 
-
+    // method for displaying 'chart.fxml'
+    // By: Lance
     @FXML
-    private void viewStatistics() {
-        // this is where the chart should go!!
+    private void viewCharts() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("chart.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.setTitle("Bookings Infographics");
+            stage.show();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @FXML
