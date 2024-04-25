@@ -1,30 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--By: Nicholas Wagner and Amit Shalev-->
+
+<?import com.gluonhq.charm.glisten.control.Icon?>
+<?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
+<AnchorPane fx:id="apChart" prefHeight="400.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
    <children>
-      <StackedBarChart fx:id="sbcBarChart" layoutX="3.0">
+      <StackedBarChart fx:id="sbcBarChart" layoutX="3.0" title="Stacked Bar Chart">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="sbcCategoryAxis" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="sbcNumberAxis" side="LEFT" />
         </yAxis>
       </StackedBarChart>
-      <PieChart fx:id="pcPieChart" disable="true" layoutX="3.0" visible="false" />
-      <LineChart fx:id="lcLineChart" disable="true" layoutX="3.0" visible="false">
+      <PieChart fx:id="pcPieChart" layoutX="3.0" title="Pie Chart" />
+      <LineChart fx:id="lcLineChart" layoutX="3.0" prefHeight="400.0" prefWidth="541.0" title="Line Chart" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="0.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <CategoryAxis fx:id="lcCategoryAxis" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="lcNumberAxis" side="LEFT" />
         </yAxis>
       </LineChart>
+      <ToggleButtonGroup fx:id="tbgCharts" layoutX="445.0" layoutY="132.0" prefWidth="131.0" rotate="90.0" selectionType="SINGLE">
+          <toggles>
+              <ToggleButton fx:id="tbBar">
+                  <graphic>
+                      <Icon fx:id="tbIconBar" content="FORMAT_ALIGN_LEFT" prefHeight="110.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Icon>
+                  </graphic>
+              </ToggleButton>
+              <ToggleButton fx:id="tbPie" selected="true">
+                  <graphic>
+                      <Icon fx:id="tbIconPie" content="FORMAT_ALIGN_CENTER" prefHeight="110.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Icon>
+                  </graphic>
+              </ToggleButton>
+              <ToggleButton fx:id="tbLine">
+                  <graphic>
+                      <Icon fx:id="tbIconLine" content="FORMAT_ALIGN_RIGHT" prefHeight="110.0" prefWidth="110.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Icon>
+                  </graphic>
+              </ToggleButton>
+          </toggles>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </ToggleButtonGroup>
    </children>
 </AnchorPane>

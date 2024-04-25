@@ -4,14 +4,16 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>org.example</groupId>
-    <artifactId>Workshop6</artifactId>
+    <artifactId>Workshop6JavaFX</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>Workshop6</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <junit.version>5.10.0</junit.version>  </properties>
+        <attach.version>4.0.19</attach.version>
 
     <dependencies>
         <dependency>
@@ -43,7 +45,8 @@
             <groupId>org.controlsfx</groupId>
             <artifactId>controlsfx</artifactId>
             <version>11.1.2</version>
-        </dependency><dependency>
+        </dependency>
+        <dependency>
         <groupId>eu.hansolo</groupId>
         <artifactId>tilesfx</artifactId>
         <version>11.48</version>
@@ -54,6 +57,18 @@
             </exclusion>
         </exclusions>
     </dependency>
+    <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-glisten</artifactId>
+            <version>6.2.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.gluonhq/charm-glisten -->
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>util</artifactId>
+            <version>${attach.version}</version>
+        </dependency>
+
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -66,6 +81,13 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>  </dependencies>
+
+    <repositories>
+        <repository>
+            <id>Gluon</id>
+            <url>https://nexus.gluonhq.com/nexus/content/repositories/releases/</url>
+        </repository>
+    </repositories>
 
     <build>
         <plugins>
@@ -102,3 +124,22 @@
         </plugins>
     </build>
 </project>
+
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+<!--&lt;!&ndash;  This module was also published with a richer model, Gradle metadata,   &ndash;&gt;-->
+<!--&lt;!&ndash;  which should be used instead. Do not delete the following line which   &ndash;&gt;-->
+<!--&lt;!&ndash;  is to indicate to Gradle or any Gradle module metadata file consumer   &ndash;&gt;-->
+<!--&lt;!&ndash;  that they should prefer consuming it instead.  &ndash;&gt;-->
+<!--&lt;!&ndash;  do_not_remove: published-with-gradle-metadata  &ndash;&gt;-->
+<!--<modelVersion>4.0.0</modelVersion>-->
+<!--<groupId>com.gluonhq</groupId>-->
+<!--<artifactId>charm-glisten</artifactId>-->
+<!--<version>6.2.3</version>-->
+<!--<name>Gluon Glisten</name>-->
+<!--<description>Mobile friendly JavaFX UI Controls</description>-->
+<!--<url>https://gluonhq.com/products/mobile/</url>-->
+<!--<organization>-->
+<!--    <name>Gluon</name>-->
+<!--    <url>https://gluonhq.com</url>-->
+<!--</organization>-->
+<!--</project>-->

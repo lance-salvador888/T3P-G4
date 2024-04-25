@@ -1,8 +1,11 @@
 /**
  * Controller Class for 'chart.fxml'
- * By: Nicholas Wagner
+ * By: Nicholas Wagner & Amit Shalev
  */
 package org.example.workshop6javafx;
+
+import com.gluonhq.charm.glisten.control.Icon;
+import com.gluonhq.charm.glisten.control.ToggleButtonGroup;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -16,12 +19,10 @@ import java.util.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.PieChart;
-import javafx.scene.chart.StackedBarChart;
-import javafx.scene.chart.XYChart;
+import javafx.scene.chart.*;
+import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 import java.time.LocalDate;
-
 public class ChartController {
 
     @FXML // ResourceBundle that was given to the FXMLLoader
@@ -30,8 +31,17 @@ public class ChartController {
     @FXML // URL location of the FXML file that was given to the FXMLLoader
     private URL location;
 
+    @FXML // fx:id="apChart"
+    private AnchorPane apChart; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lcCategoryAxis"
+    private CategoryAxis lcCategoryAxis; // Value injected by FXMLLoader
+
     @FXML // fx:id="lcLineChart"
     private LineChart<?, ?> lcLineChart; // Value injected by FXMLLoader
+
+    @FXML // fx:id="lcNumberAxis"
+    private NumberAxis lcNumberAxis; // Value injected by FXMLLoader
 
     @FXML // fx:id="pcPieChart"
     private PieChart pcPieChart; // Value injected by FXMLLoader
@@ -39,13 +49,57 @@ public class ChartController {
     @FXML // fx:id="sbcBarChart"
     private StackedBarChart<?, ?> sbcBarChart; // Value injected by FXMLLoader
 
+    @FXML // fx:id="sbcCategoryAxis"
+    private CategoryAxis sbcCategoryAxis; // Value injected by FXMLLoader
+
+    @FXML // fx:id="sbcNumberAxis"
+    private NumberAxis sbcNumberAxis; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbBar"
+    private ToggleButton tbBar; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbIconBar"
+    private Icon tbIconBar; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbIconLine"
+    private Icon tbIconLine; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbIconPie"
+    private Icon tbIconPie; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbLine"
+    private ToggleButton tbLine; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbPie"
+    private ToggleButton tbPie; // Value injected by FXMLLoader
+
+    @FXML // fx:id="tbgCharts"
+    private ToggleButtonGroup tbgCharts; // Value injected by FXMLLoader
+
     @FXML // This method is called by the FXMLLoader when initialization is complete
     void initialize() {
+        assert apChart != null : "fx:id=\"apChart\" was not injected: check your FXML file 'chart.fxml'.";
+        assert lcCategoryAxis != null : "fx:id=\"lcCategoryAxis\" was not injected: check your FXML file 'chart.fxml'.";
         assert lcLineChart != null : "fx:id=\"lcLineChart\" was not injected: check your FXML file 'chart.fxml'.";
+        assert lcNumberAxis != null : "fx:id=\"lcNumberAxis\" was not injected: check your FXML file 'chart.fxml'.";
         assert pcPieChart != null : "fx:id=\"pcPieChart\" was not injected: check your FXML file 'chart.fxml'.";
         assert sbcBarChart != null : "fx:id=\"sbcBarChart\" was not injected: check your FXML file 'chart.fxml'.";
+        assert sbcCategoryAxis != null : "fx:id=\"sbcCategoryAxis\" was not injected: check your FXML file 'chart.fxml'.";
+        assert sbcNumberAxis != null : "fx:id=\"sbcNumberAxis\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbBar != null : "fx:id=\"tbBar\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbIconBar != null : "fx:id=\"tbIconBar\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbIconLine != null : "fx:id=\"tbIconLine\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbIconPie != null : "fx:id=\"tbIconPie\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbLine != null : "fx:id=\"tbLine\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbPie != null : "fx:id=\"tbPie\" was not injected: check your FXML file 'chart.fxml'.";
+        assert tbgCharts != null : "fx:id=\"tbgCharts\" was not injected: check your FXML file 'chart.fxml'.";
 
-        populateBarGraph();
+        tbLine.setSelected(true);
+
+        sbcBarChart.setVisible(false);
+        pcPieChart.setVisible(false);
+        lcLineChart.setVisible(true);
+
     }
     public void populateLineChart() {
         lcLineChart.getData().clear();
@@ -194,6 +248,32 @@ public class ChartController {
             throw new RuntimeException(e);
         }
     }
+    
 
+    void initializeToggle() {
 
+        //
+        tbBar.setOnAction(event -> {
+            boolean selected = tbBar.isSelected();
+            sbcBarChart.setVisible(selected);
+            lcLineChart.setVisible(!selected);
+            pcPieChart.setVisible(!selected);
+        });
+
+        tbLine.setOnAction(event -> {
+            boolean selected = tbLine.isSelected();
+            sbcBarChart.setVisible(!selected);
+            lcLineChart.setVisible(selected);
+            pcPieChart.setVisible(!selected);
+
+        });
+
+        tbPie.setOnAction(event -> {
+            boolean selected = tbPie.isSelected();
+            sbcBarChart.setVisible(!selected);
+            lcLineChart.setVisible(!selected);
+            pcPieChart.setVisible(selected);
+
+        });
+    }
 }
