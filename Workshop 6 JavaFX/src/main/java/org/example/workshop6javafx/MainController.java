@@ -1,5 +1,6 @@
 /**
- * Sample Skeleton for 'main-view.fxml' Controller Class
+ * Controller Class for 'MainView.fxml'
+ * By: Navreet Dhillon
  */
 
 package org.example.workshop6javafx;

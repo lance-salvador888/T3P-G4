@@ -1,3 +1,8 @@
+/**
+ * Main class for running the application
+ * By: Navreet Dhillon
+ */
+
 package org.example.workshop6javafx;
 
 import javafx.application.Application;

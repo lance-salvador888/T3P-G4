@@ -1,3 +1,8 @@
+/**
+ * Controller Class for 'BookingDetails.fxml'
+ * By: Navreet Dhillon
+ */
+
 package org.example.workshop6javafx;
 
 import javafx.collections.FXCollections;

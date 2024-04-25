@@ -1,11 +1,15 @@
+/**
+ * Class for the 'BookingDetails' table from the 'travelexperts' database
+ * By: Nicholas Wagner & Lance Salvador
+ */
+
 package org.example.workshop6javafx;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
-/// Booking Details
-/// By: Nicholas Wagner & Lance Salvador
+
 
 public class BookingDetails {
     SimpleIntegerProperty bookingDetailId;

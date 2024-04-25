@@ -1,3 +1,8 @@
+/**
+ * Class for Database connection methods
+ * By: Navreet Dhillon
+ */
+
 package org.example.workshop6javafx;
 
 import java.io.FileInputStream;

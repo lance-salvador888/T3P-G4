@@ -1,3 +1,8 @@
+/**
+ * Controller for 'AddBooking.fxml'
+ * By: Navreet Dhillon
+ */
+
 package org.example.workshop6javafx;
 
 import javafx.event.ActionEvent;

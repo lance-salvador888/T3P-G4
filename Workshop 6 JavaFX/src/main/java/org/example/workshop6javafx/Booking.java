@@ -1,3 +1,8 @@
+/**
+ * Class for the 'Booking' table from the 'travelexperts' database
+ * By: Navreet Dhillon
+ */
+
 package org.example.workshop6javafx;
 
 import javafx.beans.property.SimpleIntegerProperty;
