@@ -16,6 +16,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -98,7 +99,7 @@ public class ChartController {
 
         sbcBarChart.setVisible(false);
         pcPieChart.setVisible(false);
-        lcLineChart.setVisible(true);
+        lcLineChart.setVisible(false);
 
         populateBarGraph();
         populateLineChart();
@@ -256,7 +257,7 @@ public class ChartController {
         }
     }
     
-
+    // lil buggy
     void initializeToggle() {
 
         //
@@ -272,7 +273,6 @@ public class ChartController {
             sbcBarChart.setVisible(!selected);
             lcLineChart.setVisible(selected);
             pcPieChart.setVisible(!selected);
-
         });
 
         tbPie.setOnAction(event -> {
@@ -280,7 +280,7 @@ public class ChartController {
             sbcBarChart.setVisible(!selected);
             lcLineChart.setVisible(!selected);
             pcPieChart.setVisible(selected);
-
         });
+
     }
 }

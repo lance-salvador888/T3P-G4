@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--By: Nicholas Wagner and Amit Shalev-->
+
 <?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane fx:id="apChart" prefHeight="400.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
@@ -33,13 +37,13 @@
       <ToggleButtonGroup fx:id="tbgCharts" layoutX="445.0" layoutY="132.0" prefWidth="131.0" rotate="90.0" selectionType="SINGLE">
           <toggles>
               <ToggleButton fx:id="tbBar">
-                  <graphic>
-                      <Icon fx:id="tbIconBar" content="FORMAT_ALIGN_LEFT" prefHeight="110.0" prefWidth="110.0">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </Icon>
-                  </graphic>
+               <graphic>
+                  <ImageView fitHeight="122.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+                     <viewport>
+                        <Rectangle2D height="538.0" width="630.0" />
+                     </viewport>
+                  </ImageView>
+               </graphic>
               </ToggleButton>
               <ToggleButton fx:id="tbPie" selected="true">
                   <graphic>
