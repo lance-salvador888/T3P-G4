@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
    <children>
-      <StackedBarChart fx:id="sbcBarChart" disable="true" layoutX="3.0" visible="false">
+      <StackedBarChart fx:id="sbcBarChart" layoutX="3.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -17,7 +17,7 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </StackedBarChart>
-      <PieChart fx:id="pcPieChart" layoutX="3.0" />
+      <PieChart fx:id="pcPieChart" disable="true" layoutX="3.0" visible="false" />
       <LineChart fx:id="lcLineChart" disable="true" layoutX="3.0" visible="false">
         <xAxis>
           <CategoryAxis side="BOTTOM" />

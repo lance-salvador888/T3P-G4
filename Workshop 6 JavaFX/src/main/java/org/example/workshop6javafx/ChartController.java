@@ -4,6 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+//import java.sql.Date;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 import javafx.collections.FXCollections;
@@ -38,7 +41,7 @@ public class ChartController {
         assert pcPieChart != null : "fx:id=\"pcPieChart\" was not injected: check your FXML file 'chart.fxml'.";
         assert sbcBarChart != null : "fx:id=\"sbcBarChart\" was not injected: check your FXML file 'chart.fxml'.";
 
-        populatePieChart();
+        populateBarGraph();
     }
     public void populateLineChart() {
         lcLineChart.getData().clear();
@@ -65,8 +68,7 @@ public class ChartController {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
-            // Use a HashMap to store year and total traveler count (optional)
-            // HashMap<Integer, Integer> travelerCountPerYear = new HashMap<>();
+
 
             while (rs.next()) {
                 int year = rs.getInt(1);
@@ -92,15 +94,15 @@ public class ChartController {
         sbcBarChart.getData().clear();
 
         XYChart.Series series = new XYChart.Series();
-        series.setName("Travelers per Day of Week");
+        series.setName("Travelers per Month");
 
         String url = "";
         String user = "";
         String password = "";
 
-        String sql = "SELECT DAYOFWEEK(bookingDate) AS bookingDay, SUM(TravelerCount) AS totalTravelers "
+        String sql = "SELECT MONTH(bookingDate) AS bookingMonth, SUM(TravelerCount) AS totalTravelers "
                 + "FROM bookings "
-                + "GROUP BY DAYOFWEEK(bookingDate)";
+                + "GROUP BY MONTH(bookingDate)";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -116,18 +118,15 @@ public class ChartController {
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
-                int bookingDay = rs.getInt(1);
+                int bookingMonth = rs.getInt(1);
                 int totalTravelers = rs.getInt(2);
 
-
-                String dayOfWeek = LocalDate.of(2024, 1, bookingDay).getDayOfWeek().toString();
-
-
-                series.getData().add(new XYChart.Data<>(dayOfWeek, totalTravelers));
+                String monthString = new SimpleDateFormat("MMMM").format(new Date(2024, bookingMonth - 1, 1));
+                series.getData().add(new XYChart.Data<>(monthString, totalTravelers));
             }
 
             sbcBarChart.getData().add(series);
-            sbcBarChart.getXAxis().setLabel("Day of Week");
+            sbcBarChart.getXAxis().setLabel("Month");
 
 
             rs.close();
@@ -138,6 +137,7 @@ public class ChartController {
             throw new RuntimeException(e);
         }
     }
+
 
     public void populatePieChart() {
         pcPieChart.getData().clear();
