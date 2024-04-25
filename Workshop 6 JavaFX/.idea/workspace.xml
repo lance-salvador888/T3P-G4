@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="updated gluon stuff. 1043 april 24">
+    <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="Toggle button in ChartController and MainApplication, but not working :(">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/ChartController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/ChartController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/workshop6javafx/MainApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/chart.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/workshop6javafx/chart.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +115,7 @@
       <workItem from="1713976005313" duration="294000" />
       <workItem from="1713976307621" duration="2094000" />
       <workItem from="1713988100408" duration="4785000" />
-      <workItem from="1713999293829" duration="2697000" />
+      <workItem from="1713999293829" duration="4311000" />
     </task>
     <task id="LOCAL-00001" summary="chart xml done, problem with gluon :(">
       <option name="closed" value="true" />
@@ -142,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1713976992708</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Toggle button in ChartController and MainApplication, but not working :(">
+      <option name="closed" value="true" />
+      <created>1714002108695</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1714002108695</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +169,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="chart xml done, problem with gluon :(" />
     <MESSAGE value="updated gluon stuff. 1043 april 24" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated gluon stuff. 1043 april 24" />
+    <MESSAGE value="Toggle button in ChartController and MainApplication, but not working :(" />
+    <option name="LAST_COMMIT_MESSAGE" value="Toggle button in ChartController and MainApplication, but not working :(" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

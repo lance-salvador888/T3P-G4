@@ -42,10 +42,10 @@ public class ChartController {
     private NumberAxis lcNumberAxis; // Value injected by FXMLLoader
 
     @FXML // fx:id="pcPieChart"
-    private static PieChart pcPieChart; // Value injected by FXMLLoader
+    private PieChart pcPieChart; // Value injected by FXMLLoader
 
     @FXML // fx:id="sbcBarChart"
-    private static StackedBarChart<?, ?> sbcBarChart; // Value injected by FXMLLoader
+    private StackedBarChart<?, ?> sbcBarChart; // Value injected by FXMLLoader
 
     @FXML // fx:id="sbcCategoryAxis"
     private CategoryAxis sbcCategoryAxis; // Value injected by FXMLLoader
@@ -99,59 +99,59 @@ public class ChartController {
         lcLineChart.setVisible(true);
 
     }
-//    public static void populateLineChart() {
-////        String selectedDestination = (String) cbBookings.getValue();
-//
-////        lcTravelerGraph.getData().clear();
-//        XYChart.Series series = new XYChart.Series();
-//        String url = "";
-//        String user = "";
-//        String password = "";
-//
-//        try {
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//            FileInputStream fis = new FileInputStream("c:\\connection.properties");
-//            Properties prop = new Properties();
-//            prop.load(fis);
-//            url = (String) prop.get("url");
-//            user = (String) prop.get("user");
-//            password = (String) prop.get("password");
-//            Connection conn = DriverManager.getConnection(url, user, password);
-//            Statement stmt = conn.createStatement();
-//            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
-//            while(rs.next()){
-//                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
-//            }
-////            lcTravelerGraph.getData().add(series);
-//            conn.close();
-//        }  catch (IOException | SQLException | ClassNotFoundException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
+    public static void populateLineChart() {
+//        String selectedDestination = (String) cbBookings.getValue();
+
+//        lcTravelerGraph.getData().clear();
+        XYChart.Series series = new XYChart.Series();
+        String url = "";
+        String user = "";
+        String password = "";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            FileInputStream fis = new FileInputStream("c:\\connection.properties");
+            Properties prop = new Properties();
+            prop.load(fis);
+            url = (String) prop.get("url");
+            user = (String) prop.get("user");
+            password = (String) prop.get("password");
+            Connection conn = DriverManager.getConnection(url, user, password);
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery("select * from bookings order by bookingDate ");
+            while(rs.next()){
+                series.getData().add(new XYChart.Data(rs.getDate(2).toString(), rs.getInt(4)));
+            }
+//            lcTravelerGraph.getData().add(series);
+            conn.close();
+        }  catch (IOException | SQLException | ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     void initializeToggle() {
 
         //
         tbBar.setOnAction(event -> {
             boolean selected = tbBar.isSelected();
-            sbcBarChart.setVisible(true);
-            lcLineChart.setVisible(false);
-            pcPieChart.setVisible(false);
+            sbcBarChart.setVisible(selected);
+            lcLineChart.setVisible(!selected);
+            pcPieChart.setVisible(!selected);
         });
 
         tbLine.setOnAction(event -> {
             boolean selected = tbLine.isSelected();
-            sbcBarChart.setVisible(false);
-            lcLineChart.setVisible(true);
-            pcPieChart.setVisible(false);
+            sbcBarChart.setVisible(!selected);
+            lcLineChart.setVisible(selected);
+            pcPieChart.setVisible(!selected);
 
         });
 
         tbPie.setOnAction(event -> {
             boolean selected = tbPie.isSelected();
-            sbcBarChart.setVisible(false);
-            lcLineChart.setVisible(false);
-            pcPieChart.setVisible(true);
+            sbcBarChart.setVisible(!selected);
+            lcLineChart.setVisible(!selected);
+            pcPieChart.setVisible(selected);
 
         });
     }

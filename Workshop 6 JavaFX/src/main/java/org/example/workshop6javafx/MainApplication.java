@@ -14,8 +14,8 @@ public class MainApplication extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
 
 //        // chart controller
-//        ChartController controller = fxmlLoader.getController();
-//        controller.initializeToggle();
+        ChartController controller = fxmlLoader.getController();
+        controller.initializeToggle();
 
         stage.setTitle("Travel Experts Data Manager");
         stage.setScene(scene);
