@@ -94,8 +94,9 @@ public class ChartController {
         assert tbLine != null : "fx:id=\"tbLine\" was not injected: check your FXML file 'chart.fxml'.";
         assert tbPie != null : "fx:id=\"tbPie\" was not injected: check your FXML file 'chart.fxml'.";
         assert tbgCharts != null : "fx:id=\"tbgCharts\" was not injected: check your FXML file 'chart.fxml'.";
-
-        tbLine.setSelected(true);
+        tbLine.setSelected(false);
+        tbBar.setSelected(false);
+        tbPie.setSelected(false);
 
         sbcBarChart.setVisible(false);
         pcPieChart.setVisible(false);

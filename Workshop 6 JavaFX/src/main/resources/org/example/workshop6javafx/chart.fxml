@@ -2,22 +2,20 @@
 
 <!--By: Nicholas Wagner and Amit Shalev-->
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
 <?import com.gluonhq.charm.glisten.control.ToggleButtonGroup?>
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.chart.StackedBarChart?>
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="apChart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
+<AnchorPane fx:id="apChart" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.workshop6javafx.ChartController">
    <children>
-      <StackedBarChart fx:id="sbcBarChart" layoutX="3.0" title="Stacked Bar Chart">
+      <StackedBarChart fx:id="sbcBarChart" layoutX="23.0" title="Stacked Bar Chart">
         <xAxis>
           <CategoryAxis fx:id="sbcCategoryAxis" side="BOTTOM" />
         </xAxis>
@@ -25,8 +23,8 @@
           <NumberAxis fx:id="sbcNumberAxis" side="LEFT" />
         </yAxis>
       </StackedBarChart>
-      <PieChart fx:id="pcPieChart" layoutX="3.0" title="Pie Chart" />
-      <LineChart fx:id="lcLineChart" layoutX="3.0" prefHeight="400.0" prefWidth="541.0" title="Line Chart" AnchorPane.leftAnchor="3.0" AnchorPane.topAnchor="0.0">
+      <PieChart fx:id="pcPieChart" layoutX="23.0" title="Pie Chart" />
+      <LineChart fx:id="lcLineChart" layoutX="2.0" prefHeight="400.0" prefWidth="541.0" title="Line Chart" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="0.0">
         <xAxis>
           <CategoryAxis fx:id="lcCategoryAxis" side="BOTTOM" />
         </xAxis>
@@ -34,34 +32,22 @@
           <NumberAxis fx:id="lcNumberAxis" side="LEFT" />
         </yAxis>
       </LineChart>
-      <ToggleButtonGroup fx:id="tbgCharts" layoutX="445.0" layoutY="132.0" prefWidth="131.0" rotate="90.0" selectionType="SINGLE">
+      <ToggleButtonGroup fx:id="tbgCharts" layoutX="138.0" layoutY="400.0" prefHeight="40.0" prefWidth="216.0">
           <toggles>
               <ToggleButton fx:id="tbBar">
                <graphic>
-                  <ImageView fitHeight="122.0" fitWidth="132.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
-                     <viewport>
-                        <Rectangle2D height="538.0" width="630.0" />
-                     </viewport>
-                  </ImageView>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bar" textAlignment="CENTER" wrappingWidth="72.0" />
                </graphic>
               </ToggleButton>
-              <ToggleButton fx:id="tbPie" selected="true">
-                  <graphic>
-                      <Icon fx:id="tbIconPie" content="FORMAT_ALIGN_CENTER" prefHeight="110.0" prefWidth="110.0">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </Icon>
-                  </graphic>
+              <ToggleButton fx:id="tbPie" selected="true" textAlignment="CENTER">
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pie" textAlignment="CENTER" wrappingWidth="72.0" />
+               </graphic>
               </ToggleButton>
-              <ToggleButton fx:id="tbLine">
-                  <graphic>
-                      <Icon fx:id="tbIconLine" content="FORMAT_ALIGN_RIGHT" prefHeight="110.0" prefWidth="110.0">
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </Icon>
-                  </graphic>
+              <ToggleButton fx:id="tbLine" textAlignment="CENTER">
+               <graphic>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Line" textAlignment="CENTER" wrappingWidth="72.0" />
+               </graphic>
               </ToggleButton>
           </toggles>
          <padding>
