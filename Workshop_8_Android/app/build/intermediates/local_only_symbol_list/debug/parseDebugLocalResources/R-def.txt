@@ -1,0 +1,21 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id btnLogin
+id btnRegister
+id etEmail
+id etPassword
+id main
+id textView
+id tvSignUp
+layout activity_login
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.Workshop_8_Android
+style Theme.Workshop_8_Android
+xml backup_rules
+xml data_extraction_rules
