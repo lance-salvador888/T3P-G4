@@ -16,6 +16,7 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+import com.gluonhq.charm.glisten.visual.MaterialDesignIcon;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -93,12 +94,13 @@ public class ChartController {
         assert tbLine != null : "fx:id=\"tbLine\" was not injected: check your FXML file 'chart.fxml'.";
         assert tbPie != null : "fx:id=\"tbPie\" was not injected: check your FXML file 'chart.fxml'.";
         assert tbgCharts != null : "fx:id=\"tbgCharts\" was not injected: check your FXML file 'chart.fxml'.";
-
-        tbLine.setSelected(true);
+        tbLine.setSelected(false);
+        tbBar.setSelected(false);
+        tbPie.setSelected(false);
 
         sbcBarChart.setVisible(false);
         pcPieChart.setVisible(false);
-        lcLineChart.setVisible(true);
+        lcLineChart.setVisible(false);
 
         populateBarGraph();
         populateLineChart();
@@ -256,7 +258,7 @@ public class ChartController {
         }
     }
     
-
+    // lil buggy
     void initializeToggle() {
 
         //
@@ -272,7 +274,6 @@ public class ChartController {
             sbcBarChart.setVisible(!selected);
             lcLineChart.setVisible(selected);
             pcPieChart.setVisible(!selected);
-
         });
 
         tbPie.setOnAction(event -> {
@@ -280,7 +281,7 @@ public class ChartController {
             sbcBarChart.setVisible(!selected);
             lcLineChart.setVisible(!selected);
             pcPieChart.setVisible(selected);
-
         });
+
     }
 }

@@ -26,6 +26,15 @@ replay_pid*
 Workshop 6 JavaFX/.idea/workspace.xml
 Workshop 6 JavaFX/src/main/resources/org/example/workshop6javafx/main-view.fxml
 
+# stuff for Nick's Proj 7 REST API
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
 # stuff for workshop 8
 #built application files
 *.apk
@@ -64,3 +73,6 @@ output.json
 #NDK
 obj/
 .externalNativeBuild
+
+
+/Workshop_8_Android/app/build
