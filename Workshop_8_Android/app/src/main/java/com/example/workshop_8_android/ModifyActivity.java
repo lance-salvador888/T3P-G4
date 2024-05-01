@@ -7,9 +7,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
+import javax.sql.DataSource;
+
 public class ModifyActivity extends AppCompatActivity {
 
-    private EditText etFirstName, etLastName, etEmail, etAddress, etCity, etProvince, etPostal, etHomePhone, etBusinessPhone, etPassword;
+    private EditText etFirstName, etLastName, etEmail, etAddress,
+            etCity, etProvince, etPostal, etHomePhone,
+            etBusinessPhone, etPassword;
     private Button btnSave;
 
     @Override
@@ -17,7 +21,6 @@ public class ModifyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify);
 
-        // Initialize EditText fields
         etFirstName = findViewById(R.id.etModFName);
         etLastName = findViewById(R.id.etModLName);
         etEmail = findViewById(R.id.etModEmail);
@@ -29,16 +32,11 @@ public class ModifyActivity extends AppCompatActivity {
         etBusinessPhone = findViewById(R.id.etModBPhone);
         etPassword = findViewById(R.id.etModPassword);
 
-        // Initialize Save button
         btnSave = findViewById(R.id.btnModSave);
 
-        // TODO: Retrieve current user information and populate EditText fields
-
-        // Set onClickListener for Save button
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Retrieve information from EditText fields
                 String firstName = etFirstName.getText().toString();
                 String lastName = etLastName.getText().toString();
                 String email = etEmail.getText().toString();
@@ -50,9 +48,6 @@ public class ModifyActivity extends AppCompatActivity {
                 String businessPhone = etBusinessPhone.getText().toString();
                 String password = etPassword.getText().toString();
 
-                // TODO: Update user information in your data storage
-
-                // Show success message
                 Toast.makeText(ModifyActivity.this, "User information updated successfully", Toast.LENGTH_SHORT).show();
             }
         });
