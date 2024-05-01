@@ -5,5 +5,5 @@ import jakarta.ws.rs.core.Application;
 
 @ApplicationPath("/api")
 public class CustomerApplication extends Application {
-
+//test
 }
