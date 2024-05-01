@@ -2,6 +2,8 @@ package com.example.workshop_7_rest;
 
 import Model.Customer;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
@@ -11,8 +13,9 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
 import java.lang.reflect.Type;
+import java.sql.ClientInfoStatus;
 import java.util.List;
-
+// ************* NOTE: YOU MAY NEED TO CHANGE THE persistence.xml TO HAVE THE CORRECT DB LOGIN INFO
 @Path("/customer")
 public class CustomerResource {
     @GET
@@ -24,9 +27,8 @@ public class CustomerResource {
         Query query = em.createQuery("select a from Customer a");
         List<Customer> list= query.getResultList();
         Gson gson = new Gson();
-        Type type = new TypeToken<List<Customer>>(){}.getType();
-        em.close();
-        return gson.toJson(list, type);
+
+        return gson.toJson(list);
     }
 
     @PUT
