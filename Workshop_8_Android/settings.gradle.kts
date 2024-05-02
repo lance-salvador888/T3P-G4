@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "Workshop_8_Android"
 include(":app")
-include(":app:lib")
