@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,8 +38,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         requestQueue = Volley.newRequestQueue(this);
-        etEmail = findViewById(R.id.etEmail);
-        etPassword = findViewById(R.id.etPassword);
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
@@ -48,6 +47,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        etEmail = findViewById(R.id.etEmail);
+        etPassword = findViewById(R.id.etPassword);
     }
 
     public void asyncJson(View view) throws IOException {
@@ -55,19 +57,32 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void SignIn(View view) throws IOException {
-        String email = etEmail.getText().toString();
-        String password = etPassword.getText().toString();
-        if (LoginExists(email, password)) {
-            Toast.makeText(getApplicationContext(), "Login successful.", Toast.LENGTH_LONG).show();
+        if (etEmail != null && etPassword != null) {
+            String email = etEmail.getText().toString();
+            String password = etPassword.getText().toString();
+            if (LoginExists(email, password)) {
+                Toast.makeText(getApplicationContext(), "Login successful.", Toast.LENGTH_LONG).show();
 
+            } else {
+                Toast.makeText(getApplicationContext(), "Invalid credentials. Please try again.", Toast.LENGTH_LONG).show();
+            }
         } else {
-            Toast.makeText(getApplicationContext(), "Invalid credentials. Please try again.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter credentials before trying to sign in.", Toast.LENGTH_LONG).show();
         }
     }
 
     public boolean LoginExists(String email, String password) {
         RefreshAgents();
-
+        for(int i = 0; i < customers.size(); i++){
+            String existingEmail = customers.get(i).getCustEmail();
+            String existingPass = customers.get(i).getCustPassword();
+            Log.d("LOGINCHECKER",
+                    "checking email=" + existingEmail +
+                         " password=" + existingPass);
+            if(email.equals(existingEmail) && password.equals(existingPass)){
+                return true;
+            }
+        }
         return false;
     }
 
