@@ -22,6 +22,7 @@ public class CustomerResource {
     @Path("/getallcustomers")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllCustomers() {
+        // http://localhost:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Query query = em.createQuery("select a from Customer a");
@@ -59,7 +60,7 @@ public class CustomerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/postagent")
+    @Path("/postagent") // ignoring this lol
     public String postCustomer(String jsonString) {
         String message = null;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
