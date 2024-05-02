@@ -59,7 +59,7 @@ public class CustomerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/postagent")
+    @Path("/postagent") // ignoring this lol
     public String postCustomer(String jsonString) {
         String message = null;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
