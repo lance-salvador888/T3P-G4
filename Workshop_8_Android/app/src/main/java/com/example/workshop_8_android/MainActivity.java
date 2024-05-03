@@ -28,12 +28,17 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     List<Customer> customers = new ArrayList<Customer>();
     EditText etEmail, etPassword;
+    ExecutorService RefreshThread;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,18 +53,20 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        RefreshThread = Executors.newSingleThreadExecutor();
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
     }
 
     public void asyncJson(View view) throws IOException {
-        Executors.newSingleThreadExecutor().execute(new GETCustomers());
+        RefreshThread.execute(new GETCustomers());
     }
 
-    public void SignIn(View view) throws IOException {
+    public void SignIn(View view) throws IOException, InterruptedException {
         if (etEmail != null && etPassword != null) {
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
+            Log.d("LOGINCHECKER", email + " " + password);
             if (LoginExists(email, password)) {
                 Toast.makeText(getApplicationContext(), "Login successful.", Toast.LENGTH_LONG).show();
 
@@ -71,11 +78,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public boolean LoginExists(String email, String password) {
+    public boolean LoginExists(String email, String password) throws InterruptedException {
+        String existingEmail, existingPass;
+
         RefreshAgents();
+
+        RefreshThread.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
+        Log.d("LOGINCHECKER", "customers.size=" + customers.size());
         for(int i = 0; i < customers.size(); i++){
-            String existingEmail = customers.get(i).getCustEmail();
-            String existingPass = customers.get(i).getCustPassword();
+            existingEmail = customers.get(i).getCustEmail();
+            existingPass = customers.get(i).getCustPassword();
             Log.d("LOGINCHECKER",
                     "checking email=" + existingEmail +
                          " password=" + existingPass);
@@ -93,11 +105,11 @@ public class MainActivity extends AppCompatActivity {
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
-                    VolleyLog.wtf("*************RESPONSE: " + response, "utf-8");
-                    Log.d("CustomerPOST", "response=" + response);
+                    // VolleyLog.wtf("*************RESPONSE: " + response, "utf-8");
+                    Log.d("CustomerGET", "response=" + response);
                     // Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                     try {
-                        GETAgents(response);
+                        StoreJSONCustomers(response);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -116,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // insert all current customers from JSON response into an ArrayList
-    public void GETAgents(String response) throws JSONException {
+    public void StoreJSONCustomers(String response) throws JSONException {
         JSONArray customerArray = new JSONArray(response);
         for (int i=0; i<customerArray.length(); i++)
         {
@@ -129,14 +141,13 @@ public class MainActivity extends AppCompatActivity {
                     cust.getString("custHomePhone"), cust.getString("custBusPhone"),
                     cust.getString("custEmail"), cust.getString("custPassword"),
                     cust.getInt("agentId")));
-            Log.d("lanc :)", "added to customer: ID" + customers.get(i).getCustomerId());
+            Log.d("lanc :)", "added to customers: ID" + customers.get(i).getCustomerId());
 
         }
-        Log.d("lanc :)", "all customers added successfully");
+        Log.d("lanc :)", "all customers added successfully, size= " + customers.size());
     }
     // Rebuilds ArrayList from latest REST service data
     public void RefreshAgents(){
-        customers.clear();
         Executors.newSingleThreadExecutor().execute(new GETCustomers());
     }
 }
