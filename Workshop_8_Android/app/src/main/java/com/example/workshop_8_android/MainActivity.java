@@ -28,6 +28,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     List<Customer> customers = new ArrayList<Customer>();
     EditText etEmail, etPassword;
     ExecutorService RefreshThread;
+    CountDownLatch countDownLatch;
 
 
 
@@ -53,13 +55,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        RefreshThread = Executors.newSingleThreadExecutor();
+
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
     }
 
     public void asyncJson(View view) throws IOException {
-        RefreshThread.execute(new GETCustomers());
+
     }
 
     public void SignIn(View view) throws IOException, InterruptedException {
@@ -82,8 +84,12 @@ public class MainActivity extends AppCompatActivity {
         String existingEmail, existingPass;
 
         RefreshAgents();
+        try {
+            countDownLatch.await();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
-        RefreshThread.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
         Log.d("LOGINCHECKER", "customers.size=" + customers.size());
         for(int i = 0; i < customers.size(); i++){
             existingEmail = customers.get(i).getCustEmail();
@@ -98,34 +104,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    class GETCustomers implements Runnable {
-        @Override
-        public void run() {
-            String url = "http://10.243.5.15:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
-            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
-                @Override
-                public void onResponse(String response) {
-                    // VolleyLog.wtf("*************RESPONSE: " + response, "utf-8");
-                    Log.d("CustomerGET", "response=" + response);
-                    // Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
-                    try {
-                        StoreJSONCustomers(response);
-                    } catch (JSONException e) {
-                        throw new RuntimeException(e);
-                    }
 
-
-                }
-            }, new Response.ErrorListener() {
-                @Override
-                public void onErrorResponse(VolleyError error) {
-                    VolleyLog.wtf(error.getMessage(), "utf-8");
-                }
-            });
-
-            requestQueue.add(stringRequest);
-        }
-    }
 
     // insert all current customers from JSON response into an ArrayList
     public void StoreJSONCustomers(String response) throws JSONException {
@@ -148,6 +127,36 @@ public class MainActivity extends AppCompatActivity {
     }
     // Rebuilds ArrayList from latest REST service data
     public void RefreshAgents(){
+        countDownLatch = new CountDownLatch(1);
         Executors.newSingleThreadExecutor().execute(new GETCustomers());
+    }
+
+    class GETCustomers implements Runnable {
+        @Override
+        public void run() {
+            String url = "http://10.243.5.15:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    // VolleyLog.wtf("*************RESPONSE: " + response, "utf-8");
+                    Log.d("CustomerGET", "response=" + response);
+                    // Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                    try {
+                        StoreJSONCustomers(response);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.wtf(error.getMessage(), "utf-8");
+                }
+            });
+
+            requestQueue.add(stringRequest);
+            countDownLatch.countDown();
+        }
     }
 }
