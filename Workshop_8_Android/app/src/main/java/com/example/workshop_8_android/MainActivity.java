@@ -1,5 +1,6 @@
 package com.example.workshop_8_android;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -71,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("LOGINCHECKER", email + " " + password);
             if (LoginExists(email, password)) {
                 Toast.makeText(getApplicationContext(), "Login successful.", Toast.LENGTH_LONG).show();
-
+                Intent intent = new Intent(getApplicationContext(), ModifyActivity.class);
+                startActivity(intent);
             } else {
                 Toast.makeText(getApplicationContext(), "Invalid credentials. Please try again.", Toast.LENGTH_LONG).show();
             }

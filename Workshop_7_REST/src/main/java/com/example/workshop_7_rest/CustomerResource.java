@@ -5,24 +5,26 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.Query;
+import jakarta.persistence.*;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
+import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Type;
 import java.sql.ClientInfoStatus;
 import java.util.List;
+import java.util.logging.Logger;
+
 // ************* NOTE: YOU MAY NEED TO CHANGE THE persistence.xml TO HAVE THE CORRECT DB LOGIN INFO
 @Path("/customer")
 public class CustomerResource {
+
+    private final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
+
     @GET
     @Path("/getallcustomers")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllCustomers() {
-        // http://localhost:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
         EntityManager em = factory.createEntityManager();
         Query query = em.createQuery("select a from Customer a");
@@ -42,6 +44,7 @@ public class CustomerResource {
         EntityManager em = factory.createEntityManager();
         Gson gson = new Gson();
         Customer customer = gson.fromJson(jsonString, Customer.class);
+        logger.info(customer.toString());
         em.getTransaction().begin();
         em.persist(customer);
         if(em.contains(customer)) {
@@ -60,7 +63,7 @@ public class CustomerResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/postagent") // ignoring this lol
+    @Path("/postagent")
     public String postCustomer(String jsonString) {
         String message = null;
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
@@ -73,10 +76,12 @@ public class CustomerResource {
 
             em.getTransaction().commit();
             message = "{'message' : 'Customer posted successfully' }";
+            logger.info(message);
         } else {
 
             em.getTransaction().rollback();
             message = "{ 'message' : 'Customer update failed' }";
+            logger.info(message);
         }
         em.close();
         return message;
