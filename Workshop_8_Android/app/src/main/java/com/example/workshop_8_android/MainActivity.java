@@ -1,6 +1,9 @@
 package com.example.workshop_8_android;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -32,16 +35,14 @@ import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     List<Customer> customers = new ArrayList<Customer>();
     EditText etEmail, etPassword;
-    ExecutorService RefreshThread;
-    CountDownLatch countDownLatch;
-
-
+    boolean myBool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,20 +57,18 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-
+        Executors.newSingleThreadExecutor().execute(new GETCustomers());
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
     }
 
-    public void asyncJson(View view) throws IOException {
-
-    }
 
     public void SignIn(View view) throws IOException, InterruptedException {
         if (etEmail != null && etPassword != null) {
             String email = etEmail.getText().toString();
             String password = etPassword.getText().toString();
             Log.d("LOGINCHECKER", email + " " + password);
+
             if (LoginExists(email, password)) {
                 Toast.makeText(getApplicationContext(), "Login successful.", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), ModifyActivity.class);
@@ -77,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 Toast.makeText(getApplicationContext(), "Invalid credentials. Please try again.", Toast.LENGTH_LONG).show();
             }
+
         } else {
             Toast.makeText(getApplicationContext(), "Please enter credentials before trying to sign in.", Toast.LENGTH_LONG).show();
         }
@@ -84,32 +84,19 @@ public class MainActivity extends AppCompatActivity {
 
     public boolean LoginExists(String email, String password) throws InterruptedException {
         String existingEmail, existingPass;
+        CountDownLatch countDownLatch = new CountDownLatch(2);
+        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
 
-        RefreshAgents();
-        try {
-            countDownLatch.await();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        Log.d("LOGINCHECKER", "customers.size=" + customers.size());
-        for(int i = 0; i < customers.size(); i++){
-            existingEmail = customers.get(i).getCustEmail();
-            existingPass = customers.get(i).getCustPassword();
-            Log.d("LOGINCHECKER",
-                    "checking email=" + existingEmail +
-                         " password=" + existingPass);
-            if(email.equals(existingEmail) && password.equals(existingPass)){
-                return true;
-            }
-        }
-        return false;
+        executor.schedule(new CheckLogin(email, password, countDownLatch), 0, SECONDS);
+        countDownLatch.await();
+        return myBool;
     }
 
 
 
     // insert all current customers from JSON response into an ArrayList
     public void StoreJSONCustomers(String response) throws JSONException {
+        customers.clear();
         JSONArray customerArray = new JSONArray(response);
         for (int i=0; i<customerArray.length(); i++)
         {
@@ -129,14 +116,16 @@ public class MainActivity extends AppCompatActivity {
     }
     // Rebuilds ArrayList from latest REST service data
     public void RefreshAgents(){
-        countDownLatch = new CountDownLatch(1);
-        Executors.newSingleThreadExecutor().execute(new GETCustomers());
+        // Executors.newSingleThreadExecutor().execute(new GETCustomers());
     }
 
     class GETCustomers implements Runnable {
+
+
         @Override
         public void run() {
-            String url = "http://10.243.5.15:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
+            // String url = "http://192.168.1.84:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
+            String url = "http://10.243.4.44:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -158,7 +147,37 @@ public class MainActivity extends AppCompatActivity {
             });
 
             requestQueue.add(stringRequest);
-            countDownLatch.countDown();
+        }
+    }
+
+    private class CheckLogin implements Runnable {
+        CountDownLatch count;
+        String existingEmail;
+        String email;
+        String password;
+        String existingPass;
+
+        public CheckLogin(String email, String password, CountDownLatch count) {
+            this.email = email;
+            this.password = password;
+            this.count = count;
+        }
+
+        @Override
+        public void run() {
+
+            Log.d("LOGINCHECKER", "customers.size=" + customers.size());
+            for(int i = 0; i < customers.size(); i++){
+                existingEmail = customers.get(i).getCustEmail();
+                existingPass = customers.get(i).getCustPassword();
+                Log.d("LOGINCHECKER",
+                        "checking email=" + existingEmail +
+                                " password=" + existingPass);
+                if(email.equals(existingEmail) && password.equals(existingPass)){
+                    myBool = true;
+                }
+            }
+            count.countDown();
         }
     }
 }
