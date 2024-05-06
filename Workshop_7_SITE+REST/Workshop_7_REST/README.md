@@ -1,4 +1,4 @@
-# Workshop 7 Rest Service
+# Workshop 7 RESTful Web Service
 **By: Nicholas Wagner** 
 
 <sub>(& below config by Lance Salvador)
