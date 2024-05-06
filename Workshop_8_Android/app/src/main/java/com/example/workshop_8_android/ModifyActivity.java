@@ -1,5 +1,8 @@
 package com.example.workshop_8_android;
 
+// ModifyActivity
+// by: Amit Shalev
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,10 +18,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.concurrent.Executors;
 
 public class ModifyActivity extends AppCompatActivity {
 
@@ -29,11 +35,16 @@ public class ModifyActivity extends AppCompatActivity {
 
     RequestQueue requestQueue;
 
+    Customer customer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestQueue = Volley.newRequestQueue(this);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify);
 
+        customer = (Customer) getIntent().getSerializableExtra("customer");
         etModFName = findViewById(R.id.etModFName);
         etModLName = findViewById(R.id.etModLName);
         etModEmail = findViewById(R.id.etModEmail);
@@ -41,12 +52,13 @@ public class ModifyActivity extends AppCompatActivity {
         etModCity = findViewById(R.id.etModCity);
         etModProvince = findViewById(R.id.etModProvince);
         etModPostal = findViewById(R.id.etModPostal);
+        etModCountry = findViewById(R.id.etModCountry);
         etModHPhone = findViewById(R.id.etModHPhone);
         etModBPhone = findViewById(R.id.etModBPhone);
         etModPassword = findViewById(R.id.etModPassword);
         btnSave = findViewById(R.id.btnModSave);
 
-        requestQueue = Volley.newRequestQueue(this);
+        setCustomer();
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,78 +80,41 @@ public class ModifyActivity extends AppCompatActivity {
         });
     }
 
-//    class PutCustomer implements Runnable {
-//        private Customer customer;
-//        public PutCustomer(Customer customer) {this.customer = customer;}
-//
-//        @Override
-//        public void run() {
-//            String url = "http://10.243.5.15:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/postcustomer";
-//            JSONObject jsonBody = new JSONObject();
-//            try {
-//                jsonBody.put("customerId", customer.getCustomerId());
-//                jsonBody.put("custFirstName", customer.getCustFirstName());
-//                jsonBody.put("custLastName", customer.getCustLastName());
-//                jsonBody.put("custAddress", customer.getCustAddress());
-//                jsonBody.put("custCity", customer.getCustCity());
-//                jsonBody.put("custProv", customer.getCustProv());
-//                jsonBody.put("custPostal", customer.getCustPostal());
-//                jsonBody.put("custCountry", customer.getCustCountry());
-//                jsonBody.put("custHomePhone", customer.getCustHomePhone());
-//                jsonBody.put("custBusPhone", customer.getCustBusPhone());
-//                jsonBody.put("custEmail", customer.getCustEmail());
-//                jsonBody.put("custPassword", customer.getCustPassword());
-//                jsonBody.put("agentId", customer.getAgentId());
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.PUT, url, jsonBody,
-//                    new Response.Listener<JSONObject>() {
-//                        @Override
-//                        public void onResponse(JSONObject jsonObject) {
-//                            Log.d("admin", "response=" + jsonObject);
-//                            VolleyLog.wtf(response.toString(), "utf-8");
-//
-//                            runOnUiThread(new Runnable() {
-//                                @Override
-//                                public void run() {
-//                                    try {
-//                                        Toast.makeText(getApplicationContext(), response.getString("message"), Toast.LENGTH_LONG).show();
-//                                    } catch (JSONException e) {
-//                                        e.printStackTrace();
-//                                    }
-//                                }
-//                            });
-//                        }
-//                    }
+    private void setCustomer() {
+        Executors.newSingleThreadExecutor().execute(new GETCustomer(customer.getCustomerId()));
+    }
 
 
-    class PostAgent implements Runnable {
-        private Customer customer;
+    public void cancelMod(View view) {
+        finish();
+    }
 
-        public PostAgent(Customer customer) {
+    class PostCustomer implements Runnable {
+        private final Customer customer;
+
+        public PostCustomer(Customer customer) {
             this.customer = customer;
         }
 
         @Override
         public void run() {
             //send JSON data to REST service
-            String url = "http://10.243.5.15:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/postcustomer";
+            String url = "http://192.168.1.101:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/postcustomer";
             JSONObject obj = new JSONObject();
             try {
                 obj.put("customerId", customer.getCustomerId());
-                obj.put("custFirstName", customer.getCustFirstName());
-                obj.put("custLastName", customer.getCustLastName());
-                obj.put("custAddress", customer.getCustAddress());
-                obj.put("custCity", customer.getCustCity());
-                obj.put("custProv", customer.getCustProv());
-                obj.put("custPostal", customer.getCustPostal());
-                obj.put("custCountry", customer.getCustCountry());
-                obj.put("custHomePhone", customer.getCustHomePhone());
-                obj.put("custBusPhone", customer.getCustBusPhone());
-                obj.put("custEmail", customer.getCustEmail());
-                obj.put("custPassword", customer.getCustPassword());
-                obj.put("agentId", customer.getAgentId());
+                obj.put("custFirstName", etModFName.getText());
+                obj.put("custLastName", etModLName.getText());
+                obj.put("custAddress", etModAddress.getText());
+                obj.put("custCity", etModCity.getText());
+                obj.put("custProv", etModProvince.getText());
+                obj.put("custPostal", etModPostal.getText());
+                obj.put("custCountry", etModCountry.getText());
+                obj.put("custHomePhone", etModHPhone.getText());
+                obj.put("custBusPhone", etModBPhone.getText());
+                obj.put("custEmail", etModEmail.getText());
+                obj.put("custPassword", etModPassword.getText());
+                obj.put("agentId", 2);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -171,6 +146,57 @@ public class ModifyActivity extends AppCompatActivity {
                         }
                     });
             requestQueue.add(jsonObjectRequest);
+        }
+    }
+
+    class GETCustomer implements Runnable {
+        private final int customerId;
+
+        public GETCustomer(int customerId) {
+            this.customerId = customerId;
+        }
+
+        @Override
+        public void run() {
+            //retrieve JSON data from REST service into StringBuffer
+            StringBuffer buffer = new StringBuffer();
+            String url = "http://192.168.1.101:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getcustomer/" + customerId;
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    VolleyLog.wtf(response, "utf-8");
+
+                    //convert JSON data from response string into an Agent
+                    JSONObject cust = null;
+                    try {
+                        cust = new JSONObject(response);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    try {
+                        assert cust != null;
+                        etModFName.setText(cust.getString("custFirstName"));
+                        etModLName.setText(cust.getString("custLastName"));
+                        etModAddress.setText(cust.getString("custAddress"));
+                        etModCity.setText(cust.getString("custCity"));
+                        etModProvince.setText(cust.getString("custProv"));
+                        etModPostal.setText(cust.getString("custPostal"));
+                        etModCountry.setText(cust.getString("custCountry"));
+                        etModHPhone.setText(cust.getString("custHomePhone"));
+                        etModBPhone.setText(cust.getString("custBusPhone"));
+                        etModEmail.setText(cust.getString("custEmail"));
+                        etModPassword.setText(cust.getString("custPassword"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }, new Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    VolleyLog.wtf(error.getMessage(), "utf-8");
+                }
+            });
+            requestQueue.add(stringRequest);
         }
     }
 }

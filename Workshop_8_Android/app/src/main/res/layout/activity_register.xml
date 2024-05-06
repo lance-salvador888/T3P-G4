@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--activity_register By: Lance Salvador-->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -23,13 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_end="190dp" />
+        app:layout_constraintGuide_end="144dp" />
 
     <Button
         android:id="@+id/btnRegister"
         android:layout_width="0dp"
         android:layout_height="73dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="32dp"
         android:backgroundTint="#03A9F4"
@@ -40,6 +43,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
+        app:layout_constraintVertical_bias="0.75"
         app:rippleColor="#2196F3"
         app:strokeColor="#03A9F4" />
 
@@ -49,14 +54,15 @@
         android:layout_height="73dp"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#03A9F4"
+        android:onClick="ReturnToLogin"
         android:text="Sign in"
         android:textColorLink="#2196F3"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:rippleColor="#2196F3"
         app:strokeColor="#03A9F4" />
@@ -79,21 +85,24 @@
 
     <EditText
         android:id="@+id/etEmail"
-        android:layout_width="378dp"
+        android:layout_width="0dp"
         android:layout_height="65dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="118dp"
         android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="378dp"
+        android:layout_width="0dp"
         android:layout_height="66dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"

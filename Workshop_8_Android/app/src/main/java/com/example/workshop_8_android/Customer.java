@@ -1,6 +1,11 @@
 package com.example.workshop_8_android;
 
-public class Customer {
+import java.io.Serializable;
+
+// Customer class
+// By: Lance Salvador
+
+public class Customer implements Serializable {
 
     private Integer customerId;
 

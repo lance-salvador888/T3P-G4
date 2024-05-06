@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2024_6_55_PM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2024_7_06_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-04-22_5_25_p_m___Changes_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2024_6_55_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2024_7_06_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/src/main/java/com/example/workshop_7_rest/CustomerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/src/main/java/com/example/workshop_7_rest/CustomerResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/target/Workshop_7_REST-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/target/Workshop_7_REST-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_SITE/target/Workshop_7_SITE-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_SITE/target/Workshop_7_SITE-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/ModifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/ModifyActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/RegisterActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_modify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_modify.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_register.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,18 +38,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "AmitShalev0"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;AmitShalev0&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/lance-salvador888/T3P-G4.git",
-    "accountId": "1842f8c4-8954-41b1-a313-111a8c6fc6b0"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/lance-salvador888/T3P-G4.git&quot;,
+    &quot;accountId&quot;: &quot;57021de0-d1c2-4aef-a7e4-d25de0b9dff6&quot;
   }
-}]]></component>
+}</component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
   &quot;isMigrated&quot;: true
@@ -48,28 +62,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.MainApplication.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "amit-branch",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/amits/GitHub/T3P-G4/Workshop_7_REST",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.39984226",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.MainApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;lance-branch&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/amits/GitHub/T3P-G4/Workshop_7_REST&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.39984226&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Nicholas\Documents\GitHub\T3P-G4\Workshop 6 JavaFX\src\main\resources\org\example\workshop6javafx" />
@@ -116,6 +131,8 @@
       <workItem from="1713912909540" duration="7552000" />
       <workItem from="1713991051117" duration="7455000" />
       <workItem from="1714696867361" duration="37000" />
+      <workItem from="1714759284808" duration="1091000" />
+      <workItem from="1714983663251" duration="2388000" />
     </task>
     <servers />
   </component>

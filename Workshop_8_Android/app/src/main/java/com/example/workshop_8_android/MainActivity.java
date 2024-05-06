@@ -1,9 +1,11 @@
 package com.example.workshop_8_android;
 
+// MainActivity
+// By: Lance Salvador
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,18 +33,17 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
     RequestQueue requestQueue;
     List<Customer> customers = new ArrayList<Customer>();
+    Customer customer;
     EditText etEmail, etPassword;
     boolean myBool;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             if (LoginExists(email, password)) {
                 Toast.makeText(getApplicationContext(), "Login successful.", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), ModifyActivity.class);
+                intent.putExtra("customer", customer);
                 startActivity(intent);
             } else {
                 Toast.makeText(getApplicationContext(), "Invalid credentials. Please try again.", Toast.LENGTH_LONG).show();
@@ -82,17 +84,42 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public boolean LoginExists(String email, String password) throws InterruptedException {
-        String existingEmail, existingPass;
-        CountDownLatch countDownLatch = new CountDownLatch(2);
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-
-        executor.schedule(new CheckLogin(email, password, countDownLatch), 0, SECONDS);
-        countDownLatch.await();
-        return myBool;
+    public void SignUp(View view) {
+        Intent intent2 = new Intent(getApplicationContext(), RegisterActivity.class);
+        startActivity(intent2);
     }
 
 
+
+
+    public boolean LoginExists(String email, String password) throws InterruptedException {
+        return CheckLogin(email, password);
+    }
+    public boolean CheckLogin(String email, String password){
+        String existingEmail;
+        String existingPass;
+        Log.d("LOGINCHECKER", "customers.size=" + customers.size());
+        for(int i = 0; i < customers.size(); i++){
+            existingEmail = customers.get(i).getCustEmail();
+            existingPass = customers.get(i).getCustPassword();
+            Log.d("LOGINCHECKER",
+                    "checking email=" + existingEmail +
+                            " password=" + existingPass);
+            if(email.equals(existingEmail) && password.equals(existingPass)){
+                getCustomer(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void getCustomer(int i) {
+        customer = new Customer(customers.get(i).getCustomerId(), customers.get(i).getCustFirstName(), customers.get(i).getCustLastName(),
+                customers.get(i).getCustAddress(), customers.get(i).getCustCity(), customers.get(i).getCustProv(),
+                customers.get(i).getCustPostal(), customers.get(i).getCustCountry(), customers.get(i).getCustHomePhone(),
+                customers.get(i).getCustBusPhone(), customers.get(i).getCustEmail(), customers.get(i).getCustPassword(),
+                customers.get(i).getAgentId());
+    }
 
     // insert all current customers from JSON response into an ArrayList
     public void StoreJSONCustomers(String response) throws JSONException {
@@ -119,13 +146,13 @@ public class MainActivity extends AppCompatActivity {
         // Executors.newSingleThreadExecutor().execute(new GETCustomers());
     }
 
+
+
     class GETCustomers implements Runnable {
-
-
         @Override
         public void run() {
             // String url = "http://192.168.1.84:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
-            String url = "http://10.243.4.44:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
+            String url = "http://192.168.1.101:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
@@ -150,34 +177,5 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class CheckLogin implements Runnable {
-        CountDownLatch count;
-        String existingEmail;
-        String email;
-        String password;
-        String existingPass;
 
-        public CheckLogin(String email, String password, CountDownLatch count) {
-            this.email = email;
-            this.password = password;
-            this.count = count;
-        }
-
-        @Override
-        public void run() {
-
-            Log.d("LOGINCHECKER", "customers.size=" + customers.size());
-            for(int i = 0; i < customers.size(); i++){
-                existingEmail = customers.get(i).getCustEmail();
-                existingPass = customers.get(i).getCustPassword();
-                Log.d("LOGINCHECKER",
-                        "checking email=" + existingEmail +
-                                " password=" + existingPass);
-                if(email.equals(existingEmail) && password.equals(existingPass)){
-                    myBool = true;
-                }
-            }
-            count.countDown();
-        }
-    }
 }

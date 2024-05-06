@@ -34,6 +34,18 @@ public class CustomerResource {
         return gson.toJson(list);
     }
 
+    @GET
+    @Path("getcustomer/{ customerid }")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getCustomer(@PathParam("customerid") int customerId)  {
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
+        EntityManager em = factory.createEntityManager();
+        Customer customer = em.find(Customer.class, customerId);
+        Gson gson = new Gson();
+
+        return gson.toJson(customer);
+    }
+
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
