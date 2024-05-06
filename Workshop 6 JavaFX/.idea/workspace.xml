@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2ab45211-0f77-4830-b901-97c568e34df0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-04-22_5_25_p_m___Changes_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2024_6_55_PM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_23_2024_7_06_PM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/src/main/java/com/example/workshop_7_rest/CustomerResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/src/main/java/com/example/workshop_7_rest/CustomerResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/target/Workshop_7_REST-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_REST/target/Workshop_7_REST-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_SITE/target/Workshop_7_SITE-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_7_SITE+REST/Workshop_7_SITE/target/Workshop_7_SITE-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/ModifyActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/ModifyActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/RegisterActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/java/com/example/workshop_8_android/RegisterActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_login.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_modify.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_modify.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_register.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Workshop_8_Android/app/src/main/res/layout/activity_register.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +117,7 @@
       <workItem from="1713991051117" duration="7455000" />
       <workItem from="1714696867361" duration="37000" />
       <workItem from="1714759284808" duration="1091000" />
-      <workItem from="1714983663251" duration="2388000" />
+      <workItem from="1714983663251" duration="3293000" />
     </task>
     <servers />
   </component>
