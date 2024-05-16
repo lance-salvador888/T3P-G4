@@ -4,9 +4,9 @@
 This repository contains all the project files for Term 3 Group 4's Workshops 6/7/8.
 
 __**The workshops include:**__
-- Project Workshop 6 – CMPP264(Java)
-- Project Workshop 7 – CPRG220(JSP)
-- Project Workshop 8 – CMPP264(Android)
+- Project Workshop 6 – CMPP264(Java Application)
+- Project Workshop 7 – CPRG220(JSP Website/RESTful Service)
+- Project Workshop 8 – CMPP264(Android App)
 
 __**Term 3 Group 4:**__
 - Navreet Dhillon
