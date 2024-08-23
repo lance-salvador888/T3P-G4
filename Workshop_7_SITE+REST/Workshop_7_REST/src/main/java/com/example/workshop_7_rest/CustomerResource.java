@@ -20,7 +20,7 @@ import java.util.logging.Logger;
 public class CustomerResource {
 
     private final Logger logger = Logger.getLogger(MethodHandles.lookup().lookupClass().getName());
-
+//    http://localhost:8080/Workshop_7_REST-1.0-SNAPSHOT/api/<method name>
     @GET
     @Path("/getallcustomers")
     @Produces(MediaType.APPLICATION_JSON)
