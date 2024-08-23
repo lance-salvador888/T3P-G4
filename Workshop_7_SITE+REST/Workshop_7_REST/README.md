@@ -1,4 +1,4 @@
-# Workshop 7 RESTful Web Service
+# Workshop 7 RESTful Web Service/API
 **By: Nicholas Wagner** 
 
 ![workshop7rest](https://github.com/user-attachments/assets/8d4598dd-701a-4924-873d-e912cb956cd1)
