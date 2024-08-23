@@ -149,7 +149,7 @@ public class MainController {
                 stmt.setInt(1, selectedBooking.getBookingId());
                 int affectedRows = stmt.executeUpdate();
                 if (affectedRows > 0) {
-                    System.out.println("Booking details deleted successfully.");
+                    System.out.println("Booking Details deleted successfully.");
                     Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
                     successAlert.setTitle("Success");
                     successAlert.setHeaderText(null);
@@ -158,9 +158,9 @@ public class MainController {
                 } else {
                     System.out.println("No booking details found to delete.");
                     Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
-                    successAlert.setTitle("No Booking Details Found.");
+                    successAlert.setTitle("Booking Details Deletion Failed.");
                     successAlert.setHeaderText(null);
-                    successAlert.setContentText("Booking Details deletion failed.");
+                    successAlert.setContentText("No Booking Details found to delete.");
                     successAlert.showAndWait();
                 }
             } catch (SQLException e) {

@@ -63,7 +63,7 @@ Thumbs.db
 # Android Studio
 *.iml
 .idea
-#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+workspace.xml - remove # and delete .idea if it better suit your needs.
 .gradle
 build/
 .navigation
@@ -74,7 +74,9 @@ output.json
 obj/
 .externalNativeBuild
 
+Workshop 6 JavaFX/.idea/workspace.xml
 
 /Workshop_8_Android/app/build
 Workshop_8_Android/.idea/workspace.xml
 /Workshop_8_Android/.gradle
+

@@ -160,7 +160,7 @@ public class ModifyActivity extends AppCompatActivity {
         public void run() {
             //retrieve JSON data from REST service into StringBuffer
             StringBuffer buffer = new StringBuffer();
-            String url = "http://192.168.1.101:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getcustomer/" + customerId;
+            String url = "http://10.0.0.18:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getcustomer/" + customerId;
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {

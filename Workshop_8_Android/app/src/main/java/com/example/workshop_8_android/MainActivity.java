@@ -150,9 +150,9 @@ public class MainActivity extends AppCompatActivity {
 
     class GETCustomers implements Runnable {
         @Override
-        public void run() {
+        public void run() { // IP depends on location; cannot be localhost due to android studio things
             // String url = "http://192.168.1.84:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
-            String url = "http://192.168.1.101:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
+            String url = "http://10.0.0.18:8080/Workshop_7_REST-1.0-SNAPSHOT/api/customer/getallcustomers";
             StringRequest stringRequest = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
